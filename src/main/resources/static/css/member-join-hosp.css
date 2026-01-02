@@ -1,0 +1,158 @@
+#container .content {
+  margin-top: 170px;
+  padding: 100px 0;
+  background: #f6f6f6;
+}
+#container .content_inner {
+  max-width: 1170px;
+  margin: 0 auto;
+}
+#container .login_wrap {
+  width: 100%;
+  background: #fff;
+  padding: 86px 100px 60px;
+  border-radius: 30px;
+}
+
+#container h2 {
+  font-size: 35px;
+  color: var(--point-color2);
+  font-weight: 700;
+  padding-bottom: 20px;
+  border-bottom: 4px solid #005ad5;
+}
+
+/*** 회원가입 - 개인정보 동의 ***/
+#container .agree_wrap {
+  display: flex;
+  margin: 30px 0;
+  gap: 0 20px;
+  padding-bottom: 30px;
+  border-bottom: 2px solid #005ad5;
+}
+#container .agree_wrap .agree_title {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+#container .agree_wrap .agree {
+  width: calc(50% - 10px);
+}
+#container .agree_wrap .agree_box {
+  border: 1px solid #ddd;
+  padding: 15px 10px 15px 15px;
+  margin-bottom: 10px;
+  height: 150px;
+  overflow-y: auto;
+  color: #bbb;
+}
+#container .checkbox_wrap .must {
+  color: var(--point-color2);
+  font-weight: 700;
+}
+
+/*** 회원가입 - 입력폼 ***/
+#container form>p {
+  color: #bbb;
+}
+#container .regist {
+  border: 2px solid #ddd;
+  margin: 10px 0;
+}
+#container .regist tr {
+  border-bottom: 1px solid #ddd;
+}
+#container .regist td {
+  padding: 5px 10px;
+}
+#container .regist .left {
+  width: 150px;
+  text-align: center;
+  border-right: 1px solid #ddd;
+}
+#container .regist td>input {
+  border: 1px solid #ddd;
+  width: 90%;
+  height: 40px;
+  padding: 0 10px;
+}
+#container .regist .id {
+  display: flex;
+  gap: 0 5px;
+  align-items: center;
+}
+#container .regist .id>input {
+  width: 50%;
+}
+#container .regist .mobile>input,
+#container .regist .regi>input {
+  width: 28.7%;
+}
+#container .regist button {
+  border: 1px solid #ddd;
+  width: 40px;
+  height: 40px;
+  background: none;
+  padding: 2px;
+}
+#container .regist .id_check {
+  background: url(/images/id_check.svg) no-repeat 1.5px 1.5px / 90%;
+}
+#container .regist .notice_ok {
+  font-size: 15px;
+  color: var(--point-color2);
+  margin: 3px 2px 2px;
+}
+/*** 영업시간 - 시간 선택 ***/
+#container .searchField {
+  border: 2px solid #ddd;
+  width: 150px;
+  height: 41px;
+  color: var(--gray-400);
+  padding: 0 10px;
+  position: relative;
+  background: url(/images/drop_down_arrow.svg) no-repeat right 5px top 50%;
+  cursor: pointer;
+  margin-left: 10px;
+}
+#container .deadline {
+  display: flex;
+  gap: 0 10px;
+  vertical-align: center;
+  align-items: center;
+}
+#container .caution {
+  font-size: 14px;
+  color: red;
+}
+/*** 의료진 입력폼 ***/
+#container .regist .doc .doctor-info {
+  border: 1px solid #ddd;
+  margin-bottom: 5px;
+}
+/*** 의료진 추가 버튼 ***/
+#container .regist .doc {
+  width: 50px;
+  height: 50px;
+}
+#container .regist .doc .plus {
+  background: url(/images/plus.svg) no-repeat 0 0 / 100%;
+}
+#container .regist .doc .delete {
+  background: url(/images/delete.svg) no-repeat 0 0 / 100%;
+}
+
+/*** 완료 버튼 ***/
+#container .btn_wrap {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+#container .btn_wrap input {
+  width: 80px;
+  height: 41px;
+  border: none;
+  border-radius: 5px;
+  background: var(--point-color2);
+  color: #fff;
+  padding: 0 10px;
+}

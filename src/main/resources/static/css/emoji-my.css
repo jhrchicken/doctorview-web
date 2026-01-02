@@ -1,0 +1,240 @@
+#container {
+	margin-top: 170px;
+    position: relative;
+    min-width: 1280px;
+}
+
+#container .content {
+	padding-top: 0;
+	position: relative;
+	z-index: 3;
+}
+
+#container .content .content_inner {
+	background-color: #f2f2f2;
+}
+
+#container .content .content_inner h2 {
+    text-align: center;
+    font-size: 40px;
+    color: #292929;
+    padding: 73px 0 50px;
+    font-weight: 500;
+}
+
+#container .content .content_inner h3 {
+    padding-bottom: 48px;
+    font-size: 16px;
+    color: #666666;
+    text-align: center;
+    letter-spacing: -0.3px;
+}
+
+
+
+/** 개인 정보 **/
+#container .emoji_list li:first-child {
+	background: #009223;
+    position: relative;
+    padding-top: 70px;
+    padding-bottom: 42px;
+}
+
+#container .emoji_list li dl {
+	overflow: hidden;
+}
+
+#container .emoji_list li dl dt {
+	font-size: 20px;
+	font-weight: 300;
+	margin-bottom: 10px;
+	color: #fff;
+    text-align: center;
+}
+
+#conainter .emoji_list li dd {
+	font-size: 28px;
+	font-weight: 300;
+	color: #fff;
+    text-align: center;
+}
+
+#container .emoji_list li dd strong {
+	font-size: 44px;
+    font-weight: bold;
+    color: #fff;
+    text-align: center;
+}
+
+#container .emoji_list .store_btn {
+    display: block;
+    border: 2px solid #ffffff;
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 300;
+    position: absolute;
+    left: 50%;
+    bottom: 42px;
+    margin-left: -63px;
+    width: 126px;
+    border-radius: 30px;
+}
+
+#container .emoji_list .store_btn:hover {
+    background: #fff;
+}
+
+#container .emoji_list .store_btn span {
+	line-height: 36px;
+	height: 36px;
+}
+
+#container .emoji_list .store_btn:hover span {
+	color: #009223;
+	font-weight: 500;
+}
+
+
+
+
+/** 이모지 목록 **/
+#container .emoji_list {
+	width: 1170px;
+	margin: 0 auto;
+	overflow: hidden;
+	padding-bottom: 130px;
+}
+
+#container .emoji_list ul {
+    overflow: hidden;
+    margin: -30px 0 0 -30px;
+}
+
+#container .emoji_list li {
+	width: 370px;
+    height: 330px;
+    background-color: #fff;
+    float: left;
+    overflow: hidden;
+    text-align: center;
+    position: relative;
+    margin: 30px 0 0 30px;
+}
+
+#container .emoji_list li .label {
+	position: absolute;
+	left: 0;
+	top: 10px;
+	z-index: 3;
+}
+
+#container .emoji_list li .label span {
+	color: #fff;
+    font-size: 13px;
+    background-color: #58006c;
+    font-weight: bold;
+    width: 70px;
+    text-align: center;
+    height: 30px;
+    line-height: 28px;
+    display: block;
+    margin-bottom: 3px;
+}
+
+#container .emoji_list li .emoji {
+    width: 270px;
+    height: 110px;
+    margin: 20px auto 0;
+    position: relative;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#container .emoji_list li .emoji p {
+    text-align: center;
+    font-size: 50px;
+}
+
+
+#container .emoji_list li .tit strong {
+	color: #292929;
+	font-size: 22px;
+	font-weight: bold;
+	margin: 10px 0 2px;
+	display: block;
+	position: relative;
+	z-index: 5;
+	top: 0;
+}
+
+#container .emoji_list li .sub {
+    color: #666666;
+    font-size: 16px;
+    display: block;
+    margin: 0 0 13px;
+    position: relative;
+    z-index: 5;
+    top: 0;
+}
+
+#container .emoji_list li .price span {
+    color: #ffc300;
+    font-size: 18px;
+    font-weight: bold;
+    display: block;
+}
+ 
+#container .emoji_list li .change_btn {
+    position: absolute;
+    left: 125px;
+    bottom: 40px;
+    background: var(--point-color1);
+    border: none;
+    border-radius: 40px;
+    width: 120px;
+    font-size: 18px;
+    text-align: center;
+    height: 50px;
+    z-index: 5;
+    color: #fff;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#container .emoji_list li .used_btn {
+    position: absolute;
+    left: 125px;
+    bottom: 40px;
+    background: #bbb;
+    border: none;
+    border-radius: 40px;
+    width: 120px;
+    font-size: 18px;
+    text-align: center;
+    height: 50px;
+    z-index: 5;
+    color: #fff;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

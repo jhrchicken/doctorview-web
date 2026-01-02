@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	
+<mapper namespace="com.edu.springboot.board.IBoardService">
+	
+	<!-- 베스트 게시판: 게시글 개수 카운트 -->
+	<select id="countBestPost">
+		SELECT COUNT(*)
+	    FROM (
+	        SELECT recodenum 
+	        FROM likes
+	        WHERE tablename = 'board'
+	        GROUP BY recodenum
+	        HAVING COUNT(*) >= 3
+	    )
+	</select>
+	
+	<!-- 베스트 게시판: 한 페이지에 출력할 게시글 목록 인출 -->
+	<select id="listBestPost"
+		resultType="com.edu.springboot.board.BoardDTO"
+		parameterType="com.edu.springboot.board.ParameterDTO">
+		SELECT * FROM (
+			SELECT Tb.*, rownum rNum FROM (
+				SELECT * FROM board
+				WHERE board_idx IN (
+					SELECT recodenum FROM likes
+					WHERE tablename = 'board'
+					GROUP BY recodenum
+					HAVING COUNT(*) >= 3
+				)
+				ORDER BY board_idx DESC
+			) Tb
+		)
+		WHERE rNum<![CDATA[>=]]>#{start} AND rNum<![CDATA[<=]]>#{end}
+	</select>
+
+
+	
+	<!-- 내가 쓴 글: 게시글 개수 카운트 -->
+	<select id="countMyPost">
+		SELECT COUNT(*) FROM board WHERE writer_ref=#{param1}
+	</select>
+	
+	<!-- 내가 쓴 글: 한 페이지에 출력할 게시글 목록 인출 -->
+	<select id="listMyPost"
+		resultType="com.edu.springboot.board.BoardDTO">
+		SELECT * FROM (
+			SELECT Tb.*, rownum rNum FROM (
+				SELECT * FROM board WHERE writer_ref=#{param1}
+				ORDER BY board_idx DESC
+			) Tb
+		)
+		WHERE rNum<![CDATA[>=]]>#{param2.start} AND rNum<![CDATA[<=]]>#{param2.end}
+	</select>
+	
+	
+	
+	<!-- 댓글 단 글: 게시글 개수 카운트 -->
+	<select id="countMyComment">
+		SELECT COUNT(*)
+	    FROM (
+	        SELECT board_ref 
+	        FROM comments
+	        WHERE writer_ref=#{param1}
+	        GROUP BY board_ref
+	    )
+	</select>
+	
+	<!-- 댓글 단 글: 한 페이지에 출력할 게시글 목록 인출 -->
+	<select id="listMyComment"
+		resultType="com.edu.springboot.board.BoardDTO">
+		SELECT * FROM (
+			SELECT Tb.*, rownum rNum FROM (
+				SELECT * FROM board
+				WHERE board_idx IN (
+					SELECT board_ref 
+			        FROM comments
+			        WHERE writer_ref=#{param1}
+			        GROUP BY board_ref
+				)
+				ORDER BY board_idx DESC
+			) Tb
+		)
+		WHERE rNum<![CDATA[>=]]>#{param2.start} AND rNum<![CDATA[<=]]>#{param2.end}
+	</select>
+	
+	
+	
+	<!-- 댓글을 기다리는 글: 게시글 개수 카운트 -->
+	<select id="countNoComment">
+		SELECT COUNT(*)
+	    FROM board b
+	    LEFT JOIN comments c ON b.board_idx = c.board_ref
+	    WHERE c.board_ref IS NULL AND b.boardname = 'qnaboard'
+	</select>
+	
+	<!-- 댓글을 기다리는 글: 한 페이지에 출력할 게시글 목록 인출 -->
+	<select id="listNoComment"
+		resultType="com.edu.springboot.board.BoardDTO"
+		parameterType="com.edu.springboot.board.ParameterDTO">
+		SELECT * FROM (
+	        SELECT Tb.*, rownum rNum FROM (
+	            SELECT b.*
+	            FROM board b
+	            LEFT JOIN comments c ON b.board_idx = c.board_ref
+	            WHERE c.board_ref IS NULL AND b.boardname = 'qnaboard'
+	            ORDER BY b.board_idx DESC
+	        ) Tb
+	    )
+	    WHERE rNum <![CDATA[>=]]> #{start} AND rNum <![CDATA[<=]]> #{end}
+	</select>
+	
+	
+
+	<!-- 정보 표시: 게시글 작성자의 닉네임 인출 -->
+	<select id="selectBoardNickname"
+		parameterType="com.edu.springboot.board.BoardDTO">
+		SELECT nickname FROM member WHERE id=#{writer_ref}	
+	</select>
+	
+	<!-- 정보 표시: 게시글 작성자의 이모지 인출 -->
+	<select id="selectBoardEmoji"
+		parameterType="com.edu.springboot.board.BoardDTO">
+		SELECT emoji FROM member WHERE id=#{writer_ref}
+	</select>
+
+	<!-- 정보 표시: 좋아요 수 조회 -->
+	<select id="countLike">
+		SELECT COUNt(*) FROM likes WHERE tablename='board' AND recodenum=#{param1}
+	</select>
+	
+	<!-- 정보 표시: 댓글 수 조회 -->
+	<select id="countComment">
+		SELECT COUNT(*) FROM comments WHERE board_ref=#{board_idx}
+	</select>
+	
+	
+	
+	
+	<!-- 플러터 연동: 게시판 목록 -->
+	<select id="getAllBoards" resultType="com.edu.springboot.board.BoardDTO">
+		SELECT * FROM board
+	</select>
+	
+	<!-- 플러터 연동: 댓글 목록 -->
+	<select id="getAllComments" resultType="com.edu.springboot.board.CommentDTO">
+		SELECT * FROM comments
+	</select>
+
+</mapper>

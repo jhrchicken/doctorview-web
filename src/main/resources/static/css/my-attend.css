@@ -1,0 +1,107 @@
+#container .content {
+  padding: 170px 0;
+}
+#container .content_inner {
+  max-width: 1170px;
+  margin: 0 auto;
+}
+
+#container .list_title {
+  text-align: center;
+  padding: 80px 0 50px;
+}
+#container h2 {
+  font-size: 40px;
+  color: var(--point-color2);
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+#container .list_title>p {
+  font-size: 20px;
+  color: var(--gray-500);
+}
+
+
+#container .calendar {
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.3);
+  padding: 30px 50px 60px;
+}
+/*** 월 선택 ***/
+#container .calendar_top {
+  display: flex;
+  gap: 0 10px;
+  justify-content: center;
+  padding: 30px 0 20px;
+}
+#container .calendar_top>button {
+  border: none;
+  background: none;
+}
+#container .date {
+  display: flex;
+  gap: 0 5px;
+  font-size: 25px;
+  font-weight: 500;
+}
+/*** 달력 ***/
+#container .scriptCalendar {
+  text-align: center;
+  border: 1px solid #ddd;
+}
+#container .scriptCalendar td {
+  border-right: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+}
+#container .scriptCalendar thead>tr>td {
+  font-weight: 700;
+  font-size: 18px;
+  padding: 20px;
+  background: var(--point-color2);
+  color: #fff;
+}
+#container .scriptCalendar tbody>tr>td {
+  padding: 5px;
+  height: 82px;
+}
+
+
+#container td.past {
+  color: var(--gray-500);
+  background: #f6f6f6;
+}
+#container td.saturday {
+  color: blue;
+}
+#container td.sunday {
+  color: red;
+}
+#container td.choiceDay {
+  background: var(--point-color1);
+  color: #fff;
+}
+
+
+/*** 출석 버튼 ***/
+#container .btn_wrap {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+}
+#container .btn_wrap>button {
+  border: none;
+  border-radius: 10px;
+  background: var(--point-color2);
+  padding: 10px 20px;
+  font-size: 20px;
+  color: #fff;
+  width: 150px;
+}
+#container .btn_wrap>button.attend_complete {
+  background: var(--gray-400);
+}
+
+
+
+
+ 

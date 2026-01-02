@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	
+<mapper namespace="com.edu.springboot.reserve.IReserveService">
+
+	<!-- 사용자가 예약할 병원 정보 가져옴 -->
+	<select id="getHospital"
+		parameterType="com.edu.springboot.reserve.ReserveDTO"
+		resultType="com.edu.springboot.member.MemberDTO">
+		SELECT *
+		FROM member m
+		WHERE m.name = (SELECT a.name 
+		                FROM api a 
+		                WHERE a.api_idx = #{api_idx})
+	</select>
+	
+	<!-- 이름으로 병원 정보 가져옴 -->
+	<select id="getMyHospital"
+		parameterType="com.edu.springboot.member.MemberDTO"
+		resultType="com.edu.springboot.member.MemberDTO">
+		SELECT * FROM member WHERE id = #{id}
+	</select>
+	
+	<!-- 사용자가 예약할 병원의 의사 정보 -->
+	<select id="getDoctor"
+		resultType="com.edu.springboot.doctor.DoctorDTO">
+		SELECT * FROM doctor WHERE hosp_ref = #{hosp_ref}
+	</select>
+	
+	<!-- 예약정보 저장 -->
+	<insert id="saveReservationInfo"
+		parameterType="com.edu.springboot.reserve.ReserveDTO">
+		INSERT INTO appointment (app_id, hospname, doctorname, username, tel, rrn, address, postdate, posttime, user_ref, hosp_ref)
+    	VALUES (seq_appointment_idx.nextval, #{hospname}, #{doctorname}, #{username}, #{tel}, #{rrn}, #{address}, #{postdate}, #{posttime}, #{user_ref}, #{hosp_ref} )
+	</insert>
+	
+	<!-- 특정날짜의 예약내역 개수 -->
+	<select id="getReservationCount">
+		select count(*) from appointment where hosp_ref = #{param1} and postdate=#{param2} and posttime=#{param3}
+		 <if test="app_id != 0">
+	      AND app_id > #{app_id}
+	    </if>
+	</select>	
+	
+	
+
+	
+	<!-- 예약 목록  -->
+	<select id="getReservationInfo"
+	    resultType="com.edu.springboot.reserve.ReserveDTO">
+	    SELECT * FROM appointment
+	    WHERE 1=1
+	    <if test="user_ref != null">
+	        AND user_ref = #{user_ref}
+	    </if>
+	    <if test="hosp_ref != null">
+	        AND hosp_ref = #{hosp_ref}
+	    </if>
+	    ORDER BY app_id
+	</select>
+	
+<!-- 	ORDER BY postdate DESC -->
+	
+	<!-- 예약목록 페이징 -->
+	<select id="getCountReservationInfo">
+		SELECT COUNT(*)
+	    FROM appointment
+	</select>
+	<select id="getAllReservationInfo"
+	    resultType="com.edu.springboot.reserve.ReserveDTO"
+	    parameterType="com.edu.springboot.board.ParameterDTO">
+	    SELECT * FROM (
+			SELECT Tb.*, rownum rNum FROM (
+				SELECT * FROM appointment
+				WHERE 1=1
+				ORDER BY postdate DESC
+			) Tb
+		)
+		WHERE rNum<![CDATA[>=]]>#{start} AND rNum<![CDATA[<=]]>#{end}	
+	</select>
+	<update id="changeReserve">
+		UPDATE appointment SET cancel=#{param2} WHERE app_id=#{param1}
+	</update>
+	
+	<!-- 에약정보 한개 가져오기  -->
+	<select id="getReservationDetails"
+		resultType="com.edu.springboot.reserve.ReserveDTO">
+		SELECT * FROM appointment WHERE app_id = #{app_id}
+	</select>
+	
+	<!-- 예약 메모추가  -->
+	<update id="updateReservationDetails">
+	    UPDATE appointment
+	    <set>
+	        <if test="user_memo != null">
+	            user_memo = #{user_memo},
+	        </if>
+	        <if test="hosp_memo != null">
+	            hosp_memo = #{hosp_memo},
+	        </if>
+	    </set>
+	    WHERE app_id = #{app_id}
+	</update>
+	
+	<!-- 예약 취소  -->
+	<update id="cancelReservation">
+	    UPDATE appointment
+	    SET cancel = 'T'
+	    WHERE app_id = #{app_id}
+	</update>
+	
+	<!-- 예약내역 숨김  -->
+	<update id="hideReservation">
+	    UPDATE appointment
+	    SET hide = 'T'
+	    WHERE app_id = #{app_id}
+	</update>
+	
+	
+	
+	
+	
+	<!-- hospital(open) or admin(close) 예약내역 찾기  -->
+	<select id="getReservationHospital" resultType="int">
+		select count(*) from appointment where hosp_ref = #{param1} and postdate=#{param2} and posttime=#{param3} and user_ref=#{param1}
+	</select>
+	<select id="getReservationAdmin">
+		select count(*) from appointment where hosp_ref = #{param1} and postdate=#{param2} and posttime=#{param3} and user_ref='admin'
+	</select>
+	
+	
+	<select id="getHospitalAppId" resultType="int">
+		select app_id from appointment where hosp_ref = #{param1} and postdate=#{param2} and posttime=#{param3} and user_ref=#{param1}
+	</select>
+	
+	<!-- 예약닫기를 위한 해당병원 예약정보 삭제 -->
+	<delete id="deleteOpenTime"
+		parameterType="com.edu.springboot.reserve.ReserveDTO">
+		delete from appointment where hosp_ref=#{hosp_ref} and postdate=#{postdate} and posttime=#{posttime} and user_ref=#{hosp_ref}
+	</delete>
+	<!-- 예약닫기를 위한 admin 예약정보 저장 -->
+	<insert id="closeTime"
+		parameterType="com.edu.springboot.reserve.ReserveDTO">
+		INSERT INTO appointment (app_id, hospname, doctorname, username, tel, rrn, address, postdate, posttime, user_ref, hosp_ref)
+    	VALUES (seq_appointment_idx.nextval, #{hospname}, 'F', 'F', 'F', 'F', 'F', #{postdate}, #{posttime}, 'admin', #{hosp_ref} )
+	</insert>
+	
+	
+	
+	<!-- 예약열기를 위한 admin 예약정보 삭제 -->
+	<delete id="deleteCloseTime"
+		parameterType="com.edu.springboot.reserve.ReserveDTO">
+		delete from appointment where hosp_ref=#{hosp_ref} and postdate=#{postdate} and posttime=#{posttime} and user_ref='admin'
+	</delete>
+	
+	<!-- 예약열기를 위한 해당병원의 예약정보 추가 -->
+<!-- 	<delete id="openTime" -->
+<!-- 		parameterType="com.edu.springboot.reserve.ReserveDTO"> -->
+<!-- 		delete from appointment where hosp_ref=#{hosp_ref} and postdate=#{postdate} and posttime=#{posttime} and user_ref='admin' -->
+<!-- 	</delete> -->
+	<insert id="openTime"
+		parameterType="com.edu.springboot.reserve.ReserveDTO">
+		INSERT INTO appointment (app_id, hospname, doctorname, username, tel, rrn, address, postdate, posttime, user_ref, hosp_ref)
+    	VALUES (seq_appointment_idx.nextval, #{hospname}, 'F', 'F', 'F', 'F', 'F', #{postdate}, #{posttime}, #{hosp_ref}, #{hosp_ref} )
+	</insert>
+	
+	
+	
+	
+	
+	
+	<!-- 특정 예약의 병원 리뷰 작성 여부를 변경 -->
+	<update id="updateHospReviewFlag">
+		UPDATE appointment SET hosp_review = 'T' WHERE app_id = #{param1}
+	</update>
+	
+	<!-- 특정 예약의 의사 리뷰 작성 여부를 변경 -->
+	<update id="updateDocReviewFlag">
+		UPDATE appointment SET doc_review = 'T' WHERE app_id = #{param1}
+	</update>
+
+	<!-- 플러터 연동: 예약 목록 -->
+	<select id="getAllReservations" resultType="com.edu.springboot.reserve.ReserveDTO">
+		SELECT * FROM appointment
+	</select>
+	
+</mapper>

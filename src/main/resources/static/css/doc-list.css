@@ -1,0 +1,271 @@
+#container {
+	margin-top: 170px;
+    position: relative;
+    min-width: 1280px;
+}
+
+#container .content {
+	padding-top: 0;
+	position: relative;
+	z-index: 3;
+}
+
+#container .content h2 {
+	text-align: center;
+	font-size: 40px;
+	color: #292929;
+	font-weight: 500;
+	padding: 73px 0 20px;
+}
+
+#container .content h3 {
+	text-align: center;
+	font-size: 16px;
+	color: #666;
+	padding: 0 0 50px;
+}
+
+
+
+/** 검색 메뉴 **/
+#container .search_menu {
+	display: flex;
+	justify-content: center;
+	margin-bottom: 40px;
+	padding: 20px 0;
+}
+
+#container .search_menu .search_form {
+	width: 900px;
+}
+
+/* 검색 메뉴 (키워드 검색) */
+#container .search_menu .search_form .search_keyword {
+	display: flex;
+	gap: 0 5px;
+	justify-content: center;
+	width: 100%;
+}
+
+#container .search_menu .search_form .search_keyword .search_field {
+	border: 2px solid #ddd;
+	width: 25%;
+	height: 41px;
+	color: #666;
+	padding: 0 10px;
+	position: relative;
+	background: url(/images/drop_down_arrow.svg) no-repeat right 5px top 50%;
+	cursor: pointer;
+}
+
+#container .search_menu .search_form .search_keyword .search_word {
+	border: 2px solid #ddd;
+	background: none;
+	width: calc(75% - 41px);
+	height: 41px;
+	font-size: 16px;
+}
+
+#container .search_menu .search_form .search_keyword .search_btn {
+	border: 2px solid #ddd;
+	background: url(/images/search.svg) no-repeat 50% 50% / 80%;
+	width: 41px;
+	height: 41px;
+	color: #666;
+	cursor: pointer;
+}
+
+
+
+/** 의사 목록 **/
+#container .doc_wrap .doc_list {
+	max-width: 1170px;
+	margin: 0 auto;
+	position: relative;
+}
+
+#container .doc_wrap .doc_list p.none {
+	text-align: center;
+	color: #999;
+	font-weight: 500;
+	padding: 100px 0 50px 0;
+}
+
+#container .doc_wrap .doc_list .doctor>li {
+	width: 100%;
+	height: 230px;
+	padding: 40px;
+	border-radius: 10px;
+	border: 1px solid #fff;
+	box-shadow: 0 0 15px 3px rgba(0, 0, 0, 0.05);
+	position: relative;
+	display: flex;
+	align-items: center;
+	background: #fff;
+	margin-bottom: 30px;
+}
+
+/* 의사 목록 (의사 사진) */
+#container .doc_wrap .doc_list .doctor .doc_photo {
+	width: 150px;
+	height: 150px;
+	border: 2px solid #ddd;
+	border-radius: 20px;
+}
+
+#container .doc_wrap .doc_list .doctor .doc_photo img {
+	width: 100%;
+	height: 100%;
+}
+
+/* 의사 목록 (의사 정보) */
+#container .doc_wrap .doc_list .doctor .doc_info {
+	padding: 0 24px;
+}
+
+/* 의사 목록 (병원 정보 - 제목과 인증마크) */
+#container .doc_wrap .doc_list .doctor .doc_info .doc_name {
+	display: flex;
+	gap: 0 5px;
+}
+
+#container .doc_wrap .doc_list .doctor .doc_info .doc_name p {
+	font-size: 24px;
+	font-weight: 500;
+	color: #666;
+}
+
+#container .doc_wrap .doc_list .doctor .doc_info .doc_name .doc_mark {
+	display: block;
+	width: 30px;
+	height: 30px;
+	background: url(/images/approve.svg) no-repeat center center / 80%;
+}
+
+/* 의사 목록 (의사 정보 - 소속병원) */
+#container .doc_wrap .doc_list .doctor .doc_info .doc_hosp {
+	margin-top: 4px;
+	display: flex;
+	gap: 0 10px;
+} 
+
+#container .doc_wrap .doc_list .doctor .doc_info .doc_hosp p {
+	display: block;
+	font-size: 16px;
+	font-weight: 500;
+	color: #bbb;
+}
+
+/* 의사 목록 (의사 정보 - 전공과 경력과 근무시간) */
+#container .doc_wrap .doc_list .doctor .doc_info .doc_major {
+	display: flex;
+	align-items: center;
+	margin-top: 20px;
+}
+
+#container .doc_wrap .doc_list .doctor .doc_info .doc_career {
+	display: flex;
+	align-items: center;
+	margin-top: 4px;
+}
+
+#container .doc_wrap .doc_list .doctor .doc_info .doc_hours {
+	display: flex;
+	align-items: center;
+	margin-top: 4px;
+}
+
+#container .doc_wrap .doc_list .doctor .doc_info p {
+	color: #999;
+}
+
+#container .doc_wrap .doc_list .doctor .doc_info .sub_tit {
+	font-weight: 500;
+}
+
+
+#container .doc_wrap .doc_list .doctor .doc_info .divider {
+	width: 1px;
+	height: 13px;
+	background: #ddd;
+	margin-left: 8px;
+	margin-right: 8px;
+}
+
+/* 의사 목록 (의사 정보 - 찜과 리뷰) */
+#container .doc_wrap .doc_list .doctor .doc_info .info_right {
+	position: absolute;
+	right: 30px;
+	top: 40px;
+	display: flex;
+	gap: 0 20px;
+	justify-content: right;
+}
+
+#container .doc_wrap .doc_list .doctor .doc_info .info_right .like {
+	display: flex;
+	gap: 0 2px;
+	align-items: center;
+}
+
+#container .doc_wrap .doc_list .doctor .doc_info .info_right .review {
+	display: flex;
+	gap: 0 2px;
+	align-items: center;
+}
+
+#container .doc_wrap .doc_list .doctor .doc_info .info_right .like img {
+	width: 20px;
+	height: 20px;
+}
+
+#container .doc_wrap .doc_list .doctor .doc_info .info_right .review img {
+	width: 25px;
+	height: 25px;
+}
+
+
+#container .doc_wrap .doc_list .doctor .doc_info .info_right p {
+	font-size: 18px;
+	position: relative;
+	color: #666;
+}
+
+#container .doc_wrap .doc_list .doctor .doc_info .info_right .count {
+	color: #bbb;
+}
+
+
+
+/** 더보기 버튼 **/
+#container .btn_wrap {
+	text-align: center;
+	margin: 50px 0 127px 0;
+}
+
+#container .more_btn {
+	width: 160px;
+	background-color: #999;
+    color: #fff;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    display: inline-block;
+    vertical-align: middle;
+    border-radius: 30px;
+    margin: 0 4px;
+    cursor: pointer;
+}
+
+#container .more_btn span {
+	height: 50px;
+	line-height: 50px;
+}
+
+
+
+
+
+
+
+

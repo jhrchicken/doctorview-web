@@ -1,0 +1,74 @@
+#container .content {
+  padding: 170px 0;
+}
+#container .content_inner {
+  max-width: 1170px;
+  margin: 0 auto;
+}
+
+#container .content h2 {
+  font-size: 40px;
+  font-weight: 700;
+  color: var(--point-color2);
+  padding: 80px 0 20px;
+  border-bottom: 4px solid #005ad5;
+}
+/*** 의사 정보 ***/
+#container .doc_info {
+  display: flex;
+  margin-top: 20px;
+}
+/*** 의사 사진 ***/
+#container .doc_img {
+  border: 2px solid #ddd;
+  padding: 20px;
+}
+#container .doc_img input {
+  margin-top: 10px;
+  width: 196px;
+}
+#container .img {
+  display: block;
+  width: 200px;
+  height: 200px;
+  border: 2px solid #ddd;
+}
+/*** 의사 정보 ***/
+#container .info {
+  border: 2px solid #ddd;
+  border-left: none;
+}
+#container .info .left {
+  border-right: 2px solid #ddd;
+  width: 150px;
+  text-align: center;
+  font-weight: 500;
+}
+#container .info tr {
+  border-bottom: 2px solid #ddd;
+}
+#container .info td {
+  padding: 0 20px;
+}
+#container .info td>input {
+  width: 100%;
+  border: 1px solid #ddd;
+}
+
+/*** 뒤로가기, 수정하기, 삭제하기 버튼 ***/
+#container .board_btn {
+  display: flex;
+  gap: 0 20px;
+  justify-content: center;
+  margin-top: 20px;
+}
+#container .board_btn button {
+  background: var(--point-color2);
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  width: 100px;
+  height: 40px;
+  padding: 0 10px;
+  font-size: 20px;
+}

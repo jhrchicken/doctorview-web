@@ -1,0 +1,80 @@
+#container .content {
+  margin-top: 170px;
+  padding: 100px 0 250px;
+}
+#container .content_inner {
+  max-width: 1170px;
+  margin: 0 auto;
+}
+
+#container h2 {
+  font-size: 40px;
+  font-weight: 700;
+  color: var(--point-color2);
+  padding: 30px 0 20px;
+  text-align: center;
+}
+
+/*** 예약 컬럼 ***/
+#container .my_doctor {
+  display: flex;
+  justify-content: center;
+}
+#container .doctor {
+  width: calc(50% - 30px / 2);
+  height: 180px;
+  padding: 20px;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.3);
+  position: relative;
+  display: flex;
+}
+/*** 정보 ***/
+#container .doctor .info {
+  padding: 0 10px;
+}
+#container .doctor .info_top h3 {
+  font-size: 32px;
+  font-weight: 700;
+}
+#container .doctor .detail_content {
+  display: flex;
+  gap: 0 15px;
+  margin-top: 20px;
+  align-items: flex-end;
+}
+#container .doctor .detail {
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.5em;
+}
+#container .doctor .details {
+  display: flex;
+  gap: 0 10px;
+}
+#container .doctor .details input {
+  border: 1px solid #ddd;
+  width: 230px;
+  height: 27px;
+}
+#container .doctor .blue {
+  color: var(--point-color2);
+}
+/*** 메모 추가, 예약 취소 버튼 ***/
+#container .doctor .board_btn {
+  display: flex;
+  gap: 0 10px;
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  z-index: 10;
+}
+#container .doctor .board_btn button {
+  background: var(--point-color1);
+  border: none;
+  border-radius: 50%;
+  color: #fff;
+  width: 50px;
+  height: 50px;
+}

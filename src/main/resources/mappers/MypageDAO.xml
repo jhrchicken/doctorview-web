@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	
+<mapper namespace="com.edu.springboot.mypage.IMypageService">
+	
+	<!-- 찜한 병원: 로그인 사용자가 찜한 병원의 개수를 카운트 -->
+	<select id="countMyHosp">
+		SELECT COUNT(*) FROM likes
+		WHERE member_ref=#{param1} AND tablename='hospital'
+	</select>
+	
+	<!-- 찜한 병원 -->
+	<select id="listMyHosp"
+		resultType="com.edu.springboot.hospital.HospitalDTO">
+		SELECT * FROM (
+			SELECT Tb.*, rownum rNum FROM (
+				SELECT * FROM api 
+				WHERE api_idx IN (
+					SELECT recodenum
+					FROM likes
+					WHERE tablename='hospital'
+					AND member_ref=#{param1}
+				)
+				ORDER BY api_idx DESC
+			) Tb
+		)
+		WHERE rNum<![CDATA[>=]]>#{param2} AND rNum<![CDATA[<=]]>#{param3}
+	</select>
+	
+	
+	
+	<!-- 찜한 의사: 로그인 사용자가 찜한 의사의 개수를 카운트 -->
+	<select id="countMyDoctor">
+		SELECT COUNT(*) FROM likes
+		WHERE member_ref=#{param1} AND tablename='doctor'
+	</select>
+	
+	<!-- 찜한 의사 목록 -->
+	<select id="listMyDoctor"
+		resultType="com.edu.springboot.doctor.DoctorDTO">
+		SELECT * FROM (
+			SELECT Tb.*, rownum rNum FROM (
+				SELECT * FROM doctor 
+				WHERE doc_idx IN (
+					SELECT recodenum
+					FROM likes
+					WHERE tablename='doctor'
+					AND member_ref=#{param1}
+				)
+				ORDER BY doc_idx DESC
+			) Tb
+		)
+		WHERE rNum<![CDATA[>=]]>#{param2} AND rNum<![CDATA[<=]]>#{param3}
+	</select>
+	
+	
+	<!-- 작성한 리뷰: 작성한 병원 리뷰 -->
+	<select id="listMyHreview"
+		resultType="com.edu.springboot.hospital.HreviewDTO">
+		SELECT * FROM hreview WHERE writer_ref=#{param1}
+		ORDER BY review_idx DESC
+	</select>
+	
+	<!-- 작성한 리뷰: 작성한 의사 리뷰 -->
+	<select id="listMyDreview"
+		resultType="com.edu.springboot.doctor.DreviewDTO">
+		SELECT * FROM dreview WHERE writer_ref=#{param1}
+		ORDER BY review_idx DESC
+	</select>
+	
+	
+	
+
+	
+
+
+</mapper>

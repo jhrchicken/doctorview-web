@@ -1,0 +1,109 @@
+#container .content {
+  margin-top: 170px;
+  padding: 100px 0;
+  background: #f6f6f6;
+}
+#container .content_inner {
+  max-width: 1170px;
+  margin: 0 auto;
+}
+#container .login_wrap {
+  width: 100%;
+  background: #fff;
+  padding: 86px 100px 60px;
+  border-radius: 30px;
+}
+
+#container h2 {
+  font-size: 35px;
+  color: var(--point-color2);
+  font-weight: 700;
+  padding-bottom: 20px;
+  border-bottom: 4px solid #005ad5;
+  margin-bottom: 20px;
+}
+
+
+/*** 회원가입 - 입력폼 ***/
+#container form>p {
+  color: #bbb;
+}
+#container .regist {
+  border: 2px solid #ddd;
+  margin: 10px 0;
+}
+#container .regist tr {
+  border-bottom: 1px solid #ddd;
+}
+#container .regist td {
+  height: 52px;
+  padding: 5px 10px;
+}
+#container .regist .left {
+  width: 150px;
+  text-align: center;
+  border-right: 1px solid #ddd;
+}
+#container .regist td>input {
+  border: 1px solid #ddd;
+  width: 90%;
+  height: 40px;
+  padding: 0 10px;
+}
+#container .regist .id>input {
+  border: none;
+  font-size: 18px;
+}
+#container .regist .nick {
+  display: flex;
+  gap: 0 5px;
+  align-items: center;
+}
+#container .regist .mobile>input,
+#container .regist .regi>input {
+  width: 28.7%;
+}
+#container .regist .mail>input {
+  width: 30%;
+}
+#container .regist .mail>select {
+  width: 26.6%;
+  height: 40px;
+  padding: 0 10px;
+  border: 1px solid #ddd;
+  background: url(/images/drop_down_arrow.svg) no-repeat right 5px top 50%;
+}
+#container .regist button {
+  border: 1px solid #ddd;
+  width: 40px;
+  height: 40px;
+  background: none;
+  padding: 2px;
+}
+#container .regist .random {
+  background: url(/images/random.svg) no-repeat 1px 1px / 90%;
+}
+#container .regist .id_check {
+  background: url(/images/id_check.svg) no-repeat 1.5px 1.5px / 90%;
+}
+#container .regist .notice_ok {
+  font-size: 15px;
+  color: var(--point-color2);
+  margin: 3px 2px 2px;
+}
+/*** 완료 버튼 ***/
+#container .btn_wrap {
+  display: flex;
+  gap: 0 20px;
+  justify-content: center;
+  margin-top: 20px;
+}
+#container .btn_wrap input {
+  width: 80px;
+  height: 41px;
+  border: none;
+  border-radius: 5px;
+  background: var(--point-color2);
+  color: #fff;
+  padding: 0 10px;
+}

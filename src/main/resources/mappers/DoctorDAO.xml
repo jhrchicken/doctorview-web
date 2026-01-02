@@ -1,0 +1,300 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+   
+<mapper namespace="com.edu.springboot.doctor.IDoctorService">
+	
+	<!-- 의사: 의사 개수 카운트 -->
+	<select id="countDoctor"
+		resultType="int"
+		parameterType="com.edu.springboot.doctor.ParameterDTO">
+		SELECT COUNT(*) FROM doctor
+		<if test="searchWord!=null and !searchWord.equals('')">
+			WHERE ${searchField} LIKE '%'||#{searchWord}||'%'
+		</if>
+	</select>
+	
+	<!-- 의사: 한 페이지에 출력할 의사 인출 -->
+	<select id="listDoctor"
+		resultType="com.edu.springboot.doctor.DoctorDTO"
+		parameterType="com.edu.springboot.doctor.ParameterDTO">
+		SELECT * FROM (
+			SELECT Tb.*, rownum rNum FROM (
+				SELECT * FROM doctor
+				<if test="searchWord!=null and !searchWord.equals('')">
+					WHERE ${searchField} LIKE '%'||#{searchWord}||'%'
+				</if>
+				ORDER BY doc_idx ASC
+			) Tb
+		)
+		WHERE rNum<![CDATA[>=]]>#{start} AND rNum<![CDATA[<=]]>#{end}
+	</select>
+	
+	<!-- 의사: 의사 목록 내용 조회 -->
+	<select id="listDoctorContent"
+		parameterType="map"
+		resultType="com.edu.springboot.doctor.DoctorDTO">
+		SELECT * FROM (
+			SELECT Tb.*, rownum rNum FROM (
+				SELECT * FROM doctor
+				<if test="searchWord!=null and !searchWord.equals('')">
+					WHERE ${searchField} LIKE '%'||#{searchWord}||'%'
+				</if>
+				ORDER BY doc_idx ASC
+			) Tb
+		)
+		WHERE rNum between #{offset} + 1 and #{offset} + #{limit}
+	</select>
+	
+	<!-- 좋아요가 많은 순서대로 4개의 의사 -->
+	<select id="listDoctorByLikecount"
+		resultType="com.edu.springboot.doctor.DoctorDTO">
+	    SELECT * 
+	    FROM (
+	        SELECT Tb.*, ROWNUM AS rNum 
+	        FROM (
+	            SELECT d.*, 
+	                   (SELECT COUNT(*) FROM likes l 
+	                    WHERE l.tablename = 'doctor' AND l.recodenum = d.doc_idx) AS likecount
+	            FROM doctor d
+	            ORDER BY likecount DESC
+	        ) Tb
+	    )
+	    WHERE rNum BETWEEN 1 AND 4
+	</select>
+	
+	
+	<!-- 의사: 의사 일련번호 조회 -->
+	<select id="selectDoctorIdx">
+		SELECT doc_idx FROM doctor WHERE name=#{param1} AND hosp_ref=#{param2}
+	</select>
+   
+	<!-- 의사: 의사 조회 -->
+	<select id="viewDoctor"
+		resultType="com.edu.springboot.doctor.DoctorDTO"
+		parameterType="com.edu.springboot.doctor.DoctorDTO">
+		SELECT * FROM doctor WHERE doc_idx=#{doc_idx}
+	</select>
+   
+	<!-- 의사: 의사 등록 -->
+	<insert id="writeDoctor" parameterType="com.edu.springboot.member.DoctorDTO">
+		INSERT INTO doctor (doc_idx, name, major, career, photo, hours, hosp_ref)
+		VALUES (seq_doctor_idx.nextval, #{name}, #{major}, #{career}, 
+			<if test="photo != null">#{photo}</if>
+			<if test="photo == null">NULL</if>, 
+		#{hours}, #{hosp_ref})
+	</insert>
+   
+	<!-- 의사: 의사 수정 -->
+	<update id="editDoctor"
+		parameterType="com.edu.springboot.doctor.DoctorDTO">
+		UPDATE doctor SET name=#{name}, major=#{major}, career=#{career}, 
+		photo=
+			<if test="photo != null">#{photo}</if>
+			<if test="photo == null">NULL</if>,  
+		hours=#{hours}
+		WHERE doc_idx=#{doc_idx}
+	</update>
+   
+	<!-- 의사: 의사 삭제 -->
+	<delete id="deleteDoctor">
+		DELETE FROM doctor WHERE doc_idx=#{param1}
+	</delete>
+	
+	
+	
+	<!-- 의사 리뷰: 리뷰 수 조회 -->
+	<select id="countReview">
+		SELECT COUNT(*) FROM dreview WHERE review_idx=original_idx AND doc_ref=#{param1}
+	</select>
+	
+	<!-- 의사 리뷰: 의사의 리뷰 목록 조회 -->
+	<select id="listReview"
+		resultType="com.edu.springboot.doctor.DreviewDTO"
+		parameterType="com.edu.springboot.doctor.DoctorDTO">
+		SELECT * FROM dreview WHERE doc_ref=#{doc_idx}
+		ORDER BY review_idx DESC
+	</select>
+	
+	<!-- 의사 리뷰: 리뷰 조회 -->
+	<select id="selectReview"
+		resultType="com.edu.springboot.doctor.DreviewDTO"
+		parameterType="com.edu.springboot.doctor.DreviewDTO">
+		SELECT * FROM dreview WHERE review_idx=#{review_idx}
+	</select>
+   
+   <!-- 의사 리뷰: 리뷰 작성 -->
+   <insert id="writeReview" parameterType="com.edu.springboot.doctor.DreviewDTO" useGeneratedKeys="true" keyProperty="review_idx">
+		<selectKey keyProperty="review_idx" resultType="int" order="BEFORE">
+			SELECT seq_dreview_idx.nextval FROM dual
+		</selectKey>
+		INSERT INTO dreview (review_idx, original_idx, score, content, writer_ref, doc_ref)
+		VALUES (#{review_idx}, #{review_idx}, #{score}, #{content}, #{writer_ref}, #{doc_ref})
+	</insert>
+	
+	<!-- 의사 리뷰: 리뷰 수정 -->
+   <update id="editReview" parameterType="com.edu.springboot.doctor.DreviewDTO">
+		UPDATE dreview SET score=#{score}, content=#{content}, rewrite='T'
+		WHERE review_idx=#{review_idx}
+	</update>
+	
+	<!-- 의사 리뷰: 리뷰 삭제 -->
+	<delete id="deleteReview">
+		DELETE FROM dreview WHERE review_idx=#{param1}
+	</delete>
+	
+	
+	
+	<!-- 의사 답변: 답변 작성 -->
+	<insert id="writeReply"
+		parameterType="com.edu.springboot.doctor.DreviewDTO">
+		INSERT INTO dreview (review_idx, original_idx, content, writer_ref, doc_ref)
+		VALUES (seq_dreview_idx.nextval, #{review_idx}, #{content}, #{writer_ref}, #{doc_ref})
+	</insert>
+	
+	<!-- 의사 답변: 답변 수정 -->
+	<update id="editReply"
+		parameterType="com.edu.springboot.doctor.DreviewDTO">
+		UPDATE dreview SET content=#{content}, rewrite='T'
+		WHERE review_idx=#{review_idx}
+	</update>
+	
+	<!-- 의사 답변: 답변 삭제 -->
+	<delete id="deleteReply">
+		DELETE FROM dreview WHERE review_idx=#{param1}
+	</delete>
+
+	<!-- 의사 답변: 리뷰의 모든 답변 삭제 -->
+	<delete id="deleteAllReply">
+		DELETE FROM dreview WHERE original_idx=#{param1}
+	</delete>
+	
+	
+	
+	<!-- 정보 표시: 의사의 소속 병원명 인출 -->
+	<select id="selectHospName"
+		parameterType="com.edu.springboot.doctor.DoctorDTO">
+		SELECT name FROM member WHERE id=#{hosp_ref}
+	</select>
+	
+	<!-- 정보 표시: 리뷰 작성자 닉네임 인출 -->
+	<select id="selectReviewNickname"
+		parameterType="com.edu.springboot.doctor.DreviewDTO">
+		SELECT nickname FROM member WHERE id=#{writer_ref}
+	</select>
+	
+	<!-- 정보 표시: 리뷰 작성자 이모지 인출 -->
+	<select id="selectReviewEmoji"
+		parameterType="com.edu.springboot.doctor.DreviewDTO">
+		SELECT emoji FROM member WHERE id=#{writer_ref}
+	</select>
+	
+	
+	
+	<!-- 의사 좋아요: 의사 좋아요 수 카운트 -->
+	<select id="countDocLike">
+		SELECT COUNT(*) FROM likes WHERE tablename='doctor' AND recodenum=#{param1}
+	</select>
+   
+	<!-- 의사 좋아요: 의사 좋아요 표시 여부 확인 -->
+	<select id="checkDocLike">
+		SELECT COUNT(*) FROM likes WHERE tablename='doctor' AND member_ref=#{param1} AND recodenum=#{param2}
+	</select>
+   
+	<!-- 의사 좋아요: 의사 좋아요 증가 -->
+	<insert id="plusDocLike">
+		INSERT INTO likes VALUES (seq_likes_idx.nextval, #{param1}, 'doctor', #{param2})
+	</insert>
+   
+	<!-- 의사 좋아요: 의사 좋아요 감소 -->
+	<delete id="minusDocLike">
+		DELETE FROM likes WHERE tablename='doctor' and member_ref=#{param1} and recodenum=#{param2}
+	</delete>
+   
+	<!-- 의사 좋아요: 의사의 모든 좋아요 삭제 -->
+	<delete id="deleteAllDocLike">
+		DELETE FROM likes WHERE tablename='doctor' AND recodenum=#{param1}
+	</delete>
+
+
+
+
+
+	<!-- 리뷰 좋아요: 리뷰 좋아요 수 카운트 -->
+	<select id="countReviewLike">
+		SELECT COUNT(*) FROM likes WHERE tablename='dreview' and recodenum=#{param1}
+	</select>
+	
+	<!-- 리뷰 좋아요: 리뷰 좋아요 표시 여부 확인 -->
+	<select id="checkReviewLike">
+		SELECT COUNT(*) FROM likes WHERE tablename='dreview' and member_ref=#{param1} and recodenum=#{param2}
+	</select>
+   
+	<!-- 리뷰 좋아요: 리뷰 좋아요 증가 -->
+	<insert id="plusReviewLike">
+		INSERT INTO likes VALUES (seq_likes_idx.nextval, #{param1}, 'dreview', #{param2})
+	</insert>
+   
+	<!-- 리뷰 좋아요: 리뷰 좋아요 감소 -->
+	<delete id="minusReviewLike">
+		DELETE FROM likes WHERE tablename='dreview' and member_ref=#{param1} and recodenum=#{param2}
+	</delete>
+   
+	<!-- 리뷰 좋아요: 리뷰의 모든 좋아요 삭제 -->
+	<delete id="deleteAllReviewLike">
+		DELETE FROM likes WHERE tablename='dreview' AND recodenum=#{param1}
+	</delete>
+   
+	<!-- 리뷰 좋아요 의사의 모든 리뷰의 모든 좋아요 삭제 -->
+	<delete id="deleteAllDocReviewLike">
+		DELETE FROM likes WHERE tablename='dreview' AND recodenum IN (
+			SELECT review_idx FROM dreview WHERE doc_ref=#{param1}
+		)
+	</delete>
+	
+	
+	
+	<!-- 별점: 별점 합게 계산 -->
+	<select id="sumScore" resultType="int">
+		SELECT COALESCE(SUM(score), 0)
+		FROM dreview WHERE doc_ref=#{param1}
+	</select>
+   
+   
+   
+	<!-- 해시태그:해시태그 목록 -->
+	<select id="listHashtag"
+		resultType="com.edu.springboot.doctor.HashtagDTO">
+		SELECT * FROM hashtag
+	</select>
+   
+	<!-- 해시태그: 리뷰 해시태그 작성 -->
+	<insert id="writeReviewHashtag">
+		INSERT INTO hashtag (tag_idx, dreview_ref, tag) VALUES (seq_hashtag_idx.nextval, #{param1}, #{param2})
+	</insert>
+   
+	<!-- 해시태그: 리뷰의 모든 해시태그 삭제 -->
+	<delete id="deleteAllReviewHashtag">
+		DELETE FROM hashtag WHERE dreview_ref=#{param1}
+	</delete>
+   
+   
+   
+	<!-- 플러터 연동: 의사 전체 목록 -->
+	<select id="getAllDoctors" resultType="com.edu.springboot.doctor.DoctorDTO">
+		SELECT * FROM doctor
+	</select>
+	
+	<!-- 플러터 연동: 의사 리뷰 목록 -->
+	<select id="getAllDReviews" resultType="com.edu.springboot.doctor.DreviewDTO">
+		SELECT * FROM dreview where review_idx = original_idx 
+	</select>
+	
+	<!-- 플러터 연동: 의사 리뷰의 답변 목록 -->
+	<select id="getAllDReplies" resultType="com.edu.springboot.doctor.DreviewDTO">
+		SELECT * FROM dreview where review_idx != original_idx
+	</select>  
+
+</mapper>

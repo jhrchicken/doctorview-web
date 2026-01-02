@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.edu.springboot.board.IQnaboardService">
+	
+	<!-- 게시글: 게시글 개수를 카운트 -->
+	<select id="countPost"
+		resultType="int"
+		parameterType="com.edu.springboot.board.ParameterDTO">
+		SELECT COUNT(*) FROM board WHERE boardname='qnaboard'
+		<if test="searchWord!=null and !searchWord.equals('')">
+			AND ${searchField} LIKE '%'||#{searchWord}||'%'
+		</if>
+	</select>
+	
+	<!-- 게시글: 한 페이지에 출력할 게시글을 인출 -->
+	<select id="listPost"
+		resultType="com.edu.springboot.board.BoardDTO"
+		parameterType="com.edu.springboot.board.ParameterDTO">
+		SELECT * FROM (
+			SELECT Tb.*, rownum rNum FROM (
+				SELECT * FROM board WHERE boardname='qnaboard'
+					<if test="searchWord!=null and !searchWord.equals('')">
+						AND ${searchField} LIKE '%'||#{searchWord}||'%'
+					</if>
+				ORDER BY board_idx DESC
+			) Tb
+		)
+		WHERE rNum<![CDATA[>=]]>#{start} AND rNum<![CDATA[<=]]>#{end}
+	</select>
+	
+	<!-- 게시글: 게시글 조회 -->
+	<select id="viewPost"
+		resultType="com.edu.springboot.board.BoardDTO"
+		parameterType="com.edu.springboot.board.BoardDTO">
+		SELECT * FROM board WHERE board_idx=#{board_idx}
+	</select>
+	
+	<!-- 게시글: 게시글 조회수 증가 -->
+	<update id="plusVisitcount"
+		parameterType="com.edu.springboot.board.ParameterDTO">
+		UPDATE board SET visitcount=visitcount+1 WHERE board_idx=#{board_idx}
+	</update>
+	
+	<!-- 게시글: 게시글 작성 -->
+	<insert id="writePost">
+		INSERT INTO board (board_idx, boardname, title, content, writer_ref)
+		VALUES (seq_board_idx.nextval, 'qnaboard', #{title}, #{content}, #{writer_ref})
+	</insert>
+	
+	<!-- 게시글: 게시글 수정 -->
+	<update id="editPost"
+		parameterType="com.edu.springboot.board.ParameterDTO">
+		UPDATE board SET title=#{title}, content=#{content}
+		WHERE board_idx=#{board_idx}
+	</update>
+	
+	<!-- 게시글: 게시글 삭제 -->
+	<delete id="deletePost">
+		DELETE FROM board WHERE board_idx=#{param1}
+	</delete>
+	
+	
+	
+	<!-- 댓글: 댓글 수 카운트 -->
+	<select id="countComment">
+		SELECT COUNT(*) FROM comments WHERE board_ref=#{board_idx}
+	</select>
+	
+	<!-- 댓글: 댓글 목록 조회 -->
+	<select id="listComment"
+		resultType="com.edu.springboot.board.CommentDTO"
+		parameterType="com.edu.springboot.board.BoardDTO">
+		SELECT * FROM comments WHERE board_ref=#{board_idx}
+		ORDER BY comm_idx ASC
+	</select>
+	
+	<!-- 댓글: 댓글 조회 -->
+	<select id="selectComment"
+		resultType="com.edu.springboot.board.CommentDTO"
+		parameterType="com.edu.springboot.board.CommentDTO">
+		SELECT * FROM comments WHERE comm_idx=#{comm_idx}
+	</select>
+	
+	<!-- 댓글: 댓글 작성 -->
+	<insert id = "writeComment"
+		parameterType="com.edu.springboot.board.CommentDTO" useGeneratedKeys="true" keyProperty="comm_idx">
+		<selectKey keyProperty="comm_idx" resultType="int" order="BEFORE">
+			SELECT seq_comments_idx.nextval FROM dual		
+		</selectKey>
+		INSERT INTO comments (comm_idx, content, board_ref, writer_ref)
+		VALUES (#{comm_idx}, #{content}, #{board_ref}, #{writer_ref})
+	</insert>
+
+	<!-- 댓글: 댓글 수정 -->
+	<update id="editComment">
+		UPDATE comments SET content=#{content}
+		WHERE comm_idx=#{comm_idx}
+	</update>
+
+	<!-- 댓글: 댓글 삭제 -->
+	<delete id="deleteComment">
+		DELETE FROM comments WHERE comm_idx=#{param1}
+	</delete>
+	
+	
+	
+	<!-- 정보 표시: 게시글 작성자 닉네임 인출 -->
+	<select id="selectBoardNickname"
+		parameterType="com.edu.springboot.board.BoardDTO">
+		SELECT nickname FROM member WHERE id=#{writer_ref}
+	</select>
+	
+	<!-- 정보 표시: 게시글 작성자 이모지 인출 -->
+	<select id="selectBoardEmoji"
+		parameterType="com.edu.springboot.board.BoardDTO">
+		SELECT emoji FROM member WHERE id=#{writer_ref}
+	</select>
+	
+	<!-- 정보 표시: 댓글 작성자 닉네임 인출 -->
+	<select id="selectCommNickname"
+		parameterType="com.edu.springboot.board.CommentDTO">
+		SELECT nickname FROM member WHERE id=#{writer_ref}
+	</select>
+	
+	<!-- 정보 표시: 댓글 작성자 이모지 인출 -->
+	<select id="selectCommEmoji"
+		parameterType="com.edu.springboot.board.CommentDTO">
+		SELECT emoji FROM member WHERE id=#{writer_ref}
+	</select>
+	
+	
+	
+	<!-- 좋아요: 좋아요 수 조회 -->
+	<select id="countLike">
+		SELECT COUNT(*) FROM likes WHERE tablename='board' and recodenum=#{param1}
+	</select>
+	
+	<!-- 좋아요: 좋아요 레코드 존재 여부 확인 -->
+	<select id="checkLike">
+		SELECT COUNT(*) FROM likes WHERE tablename='board' and member_ref=#{param1} and recodenum=#{param2}
+	</select>
+	
+	<!-- 좋아요: 좋아요 수 증가 -->
+	<insert id="plusLike">
+		INSERT INTO likes VALUES (seq_likes_idx.nextval, #{param1}, 'board', #{param2})
+	</insert>
+	
+	<!-- 좋아요: 좋아요 수 감소 -->
+	<delete id="minusLike">
+		DELETE FROM likes WHERE tablename='board' and member_ref=#{param1} and recodenum=#{param2}
+	</delete>
+	
+	<!-- 좋아요: 게시글의 모든 좋아요 삭제 -->
+	<delete id="deleteAllLike">
+		DELETE FROM likes WHERE tablename='board' AND recodenum=#{param1}
+	</delete>
+	
+	
+	
+	<!-- 신고: 신고 수 조회 -->
+	<select id="countReport">
+		SELECT COUNT(*) FROM report WHERE board_ref=#{param1}
+	</select>
+	
+	<!-- 신고: 신고 레코드 존재 여부 확인 -->
+	<select id="checkReport">
+		SELECT COUNT(*) FROM report WHERE member_ref=#{param1} and board_ref=#{param2}
+	</select>
+	
+	<!-- 신고: 신고 수 증가 -->
+	<insert id="plusReport">
+		INSERT INTO report VALUES (seq_report_idx.nextval, #{param1}, #{param2})
+	</insert>
+	
+	<!-- 신고: 신고 수 감소 -->
+	<delete id="minusReport">
+		DELETE FROM report WHERE member_ref=#{param1} and board_ref=#{param2}
+	</delete>
+
+	<!-- 신고: 게시글의 모든 신고 삭제 -->
+	<delete id="deleteAllReport">
+		DELETE FROM report WHERE board_ref=#{param1}
+	</delete>
+	
+</mapper>

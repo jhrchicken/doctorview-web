@@ -1,0 +1,617 @@
+#container {
+	margin-top: 170px;
+    position: relative;
+    min-width: 1280px;
+}
+
+#container .content {
+	padding-top: 0;
+	position: relative;
+	z-index: 3;
+}
+
+
+
+/** 의사 프로필 **/
+#container .doc_wrap {
+	max-width: 1170px;
+	margin: 0 auto;
+	position: relative;
+	padding-top: 80px;
+}
+
+#container .doc_wrap .doc_profile {
+	width: 100%;
+	height: 250px;
+	padding: 30px;
+	border: 2px solid #ddd;
+	border-radius: 20px;
+	position: relative;
+	display: flex;
+	margin-bottom: 50px;
+}
+
+/* 의사 프로필 (의사 사진) */
+#container .doc_wrap .doc_profile .doc_photo {
+	display: block;
+	width: 190px;
+	height: 190px;
+}
+
+/* 의사 프로필 (의사 정보) */
+#container .doc_wrap .doc_profile .doc_info {
+	padding: 0 20px;
+}
+
+
+/* 의사 프로필 (병원 정보) */
+#container .doc_wrap .doc_profile .doc_info .doc_name {
+	display: flex;
+	gap: 0 5px;
+}
+
+#container .doc_wrap .doc_profile .doc_info .doc_name p {
+	font-size: 30px;
+	font-weight: 500;
+	color: #666;
+}
+
+/* 의사 프로필 (의사 정보 - 소속병원) */
+#container .doc_wrap .doc_profile .doc_info .doc_hosp {
+	margin-top: 4px;
+	display: flex;
+	gap: 0 5px;
+	align-items: center;
+	font-size: 16px;
+	font-weight: 500;
+	color: #bbb;
+}
+
+/* 의사 프로필 (의사 정보 - 전공과 경력과 근무시간) */
+#container .doc_wrap .doc_profile .doc_info .doc_major {
+	display: flex;
+	align-items: center;
+	margin-top: 20px;
+}
+
+#container .doc_wrap .doc_profile .doc_info .doc_career {
+	display: flex;
+	align-items: center;
+	margin-top: 4px;
+}
+
+#container .doc_wrap .doc_profile .doc_info .doc_hours {
+	display: flex;
+	align-items: center;
+	margin-top: 4px;
+}
+
+#container .doc_wrap .doc_profile .doc_info p {
+	color: #999;
+}
+
+#container .doc_wrap .doc_profile .doc_info .sub_tit {
+	color: var(--point-color2);
+	font-weight: 500;
+}
+
+
+#container .doc_wrap .doc_profile .doc_info .divider {
+	width: 1px;
+	height: 13px;
+	background: #ddd;
+	margin-left: 8px;
+	margin-right: 8px;
+}
+
+/* 의사 프로필 - 수정 버튼 */
+#container .doc_wrap .doc_profile .doc_info .info_right {
+	position: absolute;
+	right: 60px;
+	top: 40px;
+	display: flex;
+	gap: 0 10px;
+	justify-content: right;
+}
+
+#container .doc_wrap .doc_profile .doc_info .info_right .edit_doc_btn {
+	width: 70px;
+	border-radius: 2px;
+	background: #f2f2f2;
+	text-align: center;
+	display: inline-block;
+}
+
+#container .doc_wrap .doc_profile .doc_info .info_right .edit_doc_btn span {
+	font-size: 16px;
+	font-weight: 500;
+	line-height: 33px;
+	height: 35px;
+	color: #666666;
+	display: flex;
+	gap: 0 2px;
+	align-items: center;
+	justify-content: center;
+}
+
+/* 의사 프로필 - 삭제 버튼 */
+#container .doc_wrap .doc_profile .doc_info .info_right .delete_doc_btn {
+	width: 70px;
+	border-radius: 2px;
+	background: #f2f2f2;
+	text-align: center;
+	display: inline-block;
+}
+
+#container .doc_wrap .doc_profile .doc_info .info_right .delete_doc_btn span {
+	font-size: 16px;
+	font-weight: 500;
+	line-height: 33px;
+	height: 35px;
+	color: #666666;
+	display: flex;
+	gap: 0 2px;
+	align-items: center;
+	justify-content: center;
+}
+
+/* 의사 프로필 - 찜 버튼 */
+#container .doc_wrap .doc_profile .doc_info .info_right .save_btn {
+	width: 80px;
+	border: 2px solid #f2f2f2;
+	border-radius: 30px;
+	text-align: center;
+	display: inline-block;
+	
+}
+
+#container .doc_wrap .doc_profile .doc_info .info_right .save_btn span {
+	font-size: 16px;
+	font-weight: 500;
+	line-height: 33px;
+	height: 35px;
+	color: #666666;
+	display: flex;
+	gap: 0 2px;
+	align-items: center;
+	justify-content: center;
+}
+
+
+
+/** 리뷰 **/
+#container .review_wrap {
+	margin: 87px 0 127px 0;
+}
+
+#container .review_wrap .review_list {
+	max-width: 1170px;
+	margin: 0 auto;
+	position: relative;
+}
+
+/* 리뷰 (리뷰 요약) */
+#container .review_wrap .review_list .review_summary {
+	background: #f9f9f9;
+	border-radius: 20px;
+	height: 200px;
+	display: flex;
+	justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+}
+
+#container .review_wrap .review_list .review_summary .total_count {
+	color: #999;
+}
+
+#container .review_wrap .review_list .review_summary .total_count span {
+	color: var(--point-color2);
+	font-weight: 500;
+}
+
+#container .review_wrap .review_list .review_summary .avg_score {
+	color: #999;
+	font-size: 50px;
+	font-weight: 900;
+}
+
+#container .review_wrap .review_list .review_summary .avg_star .star {
+	display: flex;
+	gap: 0;
+	text-align: center;
+	justify-content: center;
+}
+
+#container .review_wrap .review_list .review_summary .avg_star .star img {
+	width: 25px;
+	height: 25px;
+}
+
+/* 리뷰 */
+#container .review_wrap .review_list .review > li {
+	width: 100%;
+	height: 100%;
+	padding: 30px;
+	border-bottom: 1px solid #e5e5e5;
+	position: relative;
+	display: flex;
+	align-items: top;
+	background: #fff;
+}
+
+/* 리뷰 (리뷰 작성자 아이콘) */
+#container .review_wrap .review_list .review .review_icon {
+	width: 50px;
+	height: 50px;
+	border: 2px solid #ddd;
+	border-radius: 50%;
+}
+
+#container .review_wrap .review_list .review .review_icon img {
+	width: 100%;
+	height: 100%;
+}
+
+/* 리뷰 (리뷰 정보) */
+#container .review_wrap .review_list .review .review_info {
+	padding: 0 24px;
+}
+
+/* 리뷰 (리뷰 정보 - 닉네임) */
+#container .review_wrap .review_list .review .review_info .review_nickname {
+	display: flex;
+	gap: 0 5px;
+	padding: 15px 3px;
+}
+
+#container .review_wrap .review_list .review .review_info .review_nickname p {
+	font-size: 18px;
+	font-weight: 500;
+	color: #666;
+}
+
+/* 리뷰 (리뷰 정보 - 날짜 및 수정 여부) */
+#container .review_wrap .review_list .review .review_info .info_right {
+	position: absolute;
+	right: 30px;
+	top: 30px;
+	display: flex;
+	gap: 0 20px;
+	justify-content: right;
+}
+
+#container .review_wrap .review_list .review .review_info .info_right .review_date {
+	display: flex;
+	gap: 0 5px;
+	align-items: center;
+}
+
+#container .review_wrap .review_list .review .review_info .info_right .review_date p {
+	color: #bbb;
+}
+
+#container .review_wrap .review_list .review .review_info .review_score {
+	display: flex;
+	gap: 0 10px;
+	align-items: center;
+	color: #999;
+}
+
+#container .review_wrap .review_list .review .review_info .review_score .star {
+	display: flex;
+	gap: 0;
+}
+
+#container .review_wrap .review_list .review .review_info .review_score .star img {
+	width: 20px;
+	height: 20px;
+}
+
+/* 리뷰 (리뷰 정보 - 해시태그) */
+#container .review_wrap .review_list .review .review_info .review_hashtag>ul {
+	padding: 5px 3px;
+	display: flex;
+	gap: 0 5px;
+	text-align: center;
+	align-items: center;
+}
+
+#container .review_wrap .review_list .review .review_info .review_hashtag .tag p {
+	font-size: 16px;
+	font-weight: 300;
+	line-height: 25px;
+	height: 25px;
+	color: #999;
+}
+
+#container .review_wrap .review_list .review .review_info .divider {
+	width: 1px;
+	height: 13px;
+	background: #ddd;
+	margin-left: 8px;
+	margin-right: 8px;
+}
+
+/* 리뷰 (리뷰 정보 - 내용) */
+#container .review_wrap .review_list .review .review_info .review_content {
+	padding: 10px 3px;
+	font-size: 16px;
+	color: #666;
+}
+
+/* 리뷰 - 좋아요 버튼 */
+#container .review_wrap .review_list .review .review_info .button_wrap {
+	display: flex;
+	gap: 0 10px;
+	padding: 5px 3px;
+	align-items: center;
+}
+
+#container .review_wrap .review_list .review .review_info .button_wrap p {
+	color: #666;
+	font-weight: 500;
+}
+
+#container .review_wrap .review_list .review .review_info .button_wrap .comm_like_btn {
+	width: 80px;
+	border: 2px solid #f2f2f2;
+	border-radius: 30px;
+	text-align: center;
+	display: inline-block;
+	
+}
+
+#container .review_wrap .review_list .review .review_info .button_wrap .comm_like_btn span {
+	font-size: 16px;
+	font-weight: 500;
+	line-height: 33px;
+	height: 35px;
+	color: #999;
+	display: flex;
+	gap: 0 5px;
+	align-items: center;
+	justify-content: center;
+}
+
+/* 리뷰 - 리뷰 수정 버튼 */
+#container .review_wrap .review_list .review .review_info .button_wrap .crud_btn {
+	position: absolute;
+	right: 30px;
+	bottom: 35px;
+	display: flex;
+	gap: 0 10px;
+	justify-content: right;
+}
+
+#container .review_wrap .review_list .review .review_info .button_wrap .edit_review_btn {
+	width: 70px;
+	border-radius: 2px;
+	background: #f2f2f2;
+	text-align: center;
+	display: inline-block;
+}
+
+#container .review_wrap .review_list .review .review_info .button_wrap .edit_review_btn span {
+	font-size: 16px;
+	font-weight: 500;
+	line-height: 33px;
+	height: 35px;
+	color: #666666;
+	display: flex;
+	gap: 0 2px;
+	align-items: center;
+	justify-content: center;
+}
+
+/* 리뷰 - 리뷰 삭제 버튼 */
+#container .review_wrap .review_list .review .review_info .button_wrap .delete_review_btn {
+	width: 70px;
+	border-radius: 2px;
+	background: #f2f2f2;
+	text-align: center;
+	display: inline-block;
+}
+
+#container .review_wrap .review_list .review .review_info .button_wrap .delete_review_btn span {
+	font-size: 16px;
+	font-weight: 500;
+	line-height: 33px;
+	height: 35px;
+	color: #666;
+	display: flex;
+	gap: 0 2px;
+	align-items: center;
+	justify-content: center;
+}
+
+/* 리뷰 - 답변 작성 버튼 */
+#container .review_wrap .review_list .review .review_info .button_wrap .reply_btn {
+	width: 140px;
+	border: 2px solid #f2f2f2;
+	border-radius: 30px;
+	text-align: center;
+	display: inline-block;
+	
+}
+
+#container .review_wrap .review_list .review .review_info .button_wrap .reply_btn span {
+	font-size: 16px;
+	font-weight: 500;
+	line-height: 33px;
+	height: 35px;
+	color: #666;
+	display: flex;
+	gap: 0 2px;
+	align-items: center;
+	justify-content: center;
+}
+
+
+
+/** 답변 **/
+#container .review_wrap .review_list .reply>li {
+	width: 100%;
+	height: 100%;
+	padding: 30px;
+	border-bottom: 1px solid #e5e5e5;
+	position: relative;
+	display: flex;
+	align-items: top;
+	background: #fff;
+}
+
+/* 답변 (화살표) */
+#container .review_wrap .review_list .reply .reply_arrow {
+	padding: 10px 15px;
+}
+
+/* 답변 (답변 작성자 아이콘) */
+#container .review_wrap .review_list .reply .reply_icon {
+	width: 50px;
+	height: 50px;
+	border: 2px solid #ddd;
+	border-radius: 50%;
+}
+
+#container .review_wrap .review_list .reply .reply_icon img {
+	width: 100%;
+	height: 100%;
+}
+
+/* 답변 (답변 정보) */
+#container .review_wrap .review_list .reply .reply_info {
+	padding: 0 24px;
+}
+
+/* 답변 (답변 정보 - 닉네임) */
+#container .review_wrap .review_list .reply .reply_info .reply_nickname {
+	display: flex;
+	gap: 0 5px;
+	padding: 15px 3px;
+	align-items: center;
+}
+
+#container .review_wrap .review_list .reply .reply_info .reply_nickname p {
+	font-size: 18px;
+	font-weight: 500;
+	color: #666;
+}
+
+#container .review_wrap .review_list .reply .reply_info .reply_nickname .hosp_mark {
+	display: block;
+	width: 30px;
+	height: 30px;
+	background: url(/images/approve.svg) no-repeat center center / 80%;
+}
+
+/* 답변 (답변 정보 - 날짜 및 수정 여부) */
+#container .review_wrap .review_list .reply .reply_info .info_right {
+	position: absolute;
+	right: 30px;
+	top: 30px;
+	display: flex;
+	gap: 0 20px;
+	justify-content: right;
+}
+
+#container .review_wrap .review_list .reply .reply_info .info_right .reply_date {
+	display: flex;
+	gap: 0 5px;
+	align-items: center;
+}
+
+#container .review_wrap .review_list .reply .reply_info .info_right .reply_date p {
+	color: #bbb;
+}
+
+/* 답변 (답변 정보 - 내용) */
+#container .review_wrap .review_list .reply .reply_info .reply_content {
+	padding: 0 3px;
+	font-size: 16px;
+	color: #666;
+}
+
+/* 답변 - 답변 수정 버튼 */
+#container .review_wrap .review_list .reply .reply_info .button_wrap {
+	display: flex;
+	gap: 0 10px;
+	padding: 20px 0;
+}
+
+#container .review_wrap .review_list .reply .reply_info .button_wrap .edit_reply_btn {
+	width: 70px;
+	border-radius: 2px;
+	background: #f2f2f2;
+	text-align: center;
+	display: inline-block;
+}
+
+#container .review_wrap .review_list .reply .reply_info .button_wrap .edit_reply_btn span {
+	font-size: 16px;
+	font-weight: 500;
+	line-height: 33px;
+	height: 35px;
+	color: #666666;
+	display: flex;
+	gap: 0 2px;
+	align-items: center;
+	justify-content: center;
+}
+
+/* 답변 - 답변 삭제 버튼 */
+#container .review_wrap .review_list .reply .reply_info .button_wrap .delete_reply_btn {
+	width: 70px;
+	border-radius: 2px;
+	background: #f2f2f2;
+	text-align: center;
+	display: inline-block;
+}
+
+#container .review_wrap .review_list .reply .reply_info .button_wrap .delete_reply_btn span {
+	font-size: 16px;
+	font-weight: 500;
+	line-height: 33px;
+	height: 35px;
+	color: #666;
+	display: flex;
+	gap: 0 2px;
+	align-items: center;
+	justify-content: center;
+}
+
+
+
+/** 모달창 **/
+.modal-content {
+  color: var(--gray-500);
+}
+
+.modal-content button {
+  height: auto;
+  padding: 5px 10px;
+  border: 1px solid #bbb;
+}
+
+.modal-content button.btn-close {
+  border: none;
+}
+
+.modal-content #hashtag-list {
+  display: flex;
+  gap: 0 5px;
+  margin-top: 5px;
+}
+
+.modal-content .form-group {
+  margin-bottom: 10px;	
+}
+
+.modal-content .form-control {
+  margin-bottom: 10px;
+}
+
+.modal-content .form-control:last-child {
+  margin-bottom: 0;
+}

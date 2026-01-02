@@ -1,0 +1,239 @@
+#container {
+	margin-top: 170px;
+    position: relative;
+    min-width: 1280px;
+}
+
+#container .content {
+	padding-top: 0;
+	position: relative;
+	z-index: 3;
+}
+
+#container .content .content_inner {
+	background-color: #f2f2f2;
+}
+
+
+
+/*** 회원 정보 ***/
+#container .user_info {
+	background: url(/images/emoji/bg_emoji.jpg) 50% no-repeat;
+	height: 380px;
+    text-align: center;
+    color: #fff;
+    overflow: hidden;
+    position: relative;
+}
+
+#container .user_info h2 {
+    font-size: 70px;
+    font-weight: bold;
+    color: #fff;
+    padding: 104px 0 21px 0;
+    position: relative;
+    z-index: 9;
+}
+
+#container .user_info p {
+	font-size: 16px;
+    line-height: 26px;
+    position: relative;
+    z-index: 9;
+}
+
+#container .user_info p span {
+	font-size: 18px;
+	font-weight: bold;
+ 	color: var(--point-color1);
+}
+
+
+/*** 탭 메뉴 ***/
+#container .tab_menu {
+	height: 140px;
+	width: 1170px;
+	margin: -40px auto 0;
+	background: url(/images/emoji/bg_tabbox.png) 0 0 no-repeat;
+	position: relative;
+	z-index: 3;
+	text-align: center;
+}
+
+#container .tab_menu ul {
+	overflow: hidden;
+	display: inline-block;
+}
+
+#container .tab_menu li {
+	float: left;
+	position: relative;
+}
+
+#container .tab_menu a {
+    font-size: 16px;
+    color: #666666;
+    display: block;
+    text-align: center;
+    height: 80px;
+    line-height: 80px;
+    padding: 0 24px;
+}
+
+
+#container .tab_menu li.active a {
+	color: var(--point-color2);
+	font-weight: bold;
+}
+
+#container .tab_menu li:nth-child(n+2):after {
+	content: '';
+	position: absolute;
+	left: 0;
+	top: 33px;
+	width: 1px;
+	height: 15px;
+	background-color: #dddddd;
+}
+
+
+
+/*** 이모지 목록 ***/
+#container .emoji_list {
+	width: 1170px;
+	margin: 0 auto;
+	overflow: hidden;
+	padding-bottom: 130px;
+}
+
+#container .emoji_list ul {
+    overflow: hidden;
+    margin: -30px 0 0 -30px;
+}
+
+#container .emoji_list li {
+	width: 370px;
+    height: 330px;
+    background-color: #fff;
+    float: left;
+    overflow: hidden;
+    text-align: center;
+    position: relative;
+    margin: 30px 0 0 30px;
+}
+
+#container .emoji_list li:after {
+    content: '';
+    background-color: var(--point-color2);
+    position: absolute;
+    left: 0;
+    width: 100%;
+    top: 0;
+    height: 100%;
+    z-index: 9;
+    opacity: 0;
+    z-index: 3;
+}
+
+#container .emoji_list li .label {
+	position: absolute;
+	left: 0;
+	top: 10px;
+	z-index: 3;
+}
+
+#container .emoji_list li .label span {
+	color: #fff;
+    font-size: 13px;
+    background-color: #58006c;
+    font-weight: bold;
+    width: 70px;
+    text-align: center;
+    height: 30px;
+    line-height: 28px;
+    display: block;
+    margin-bottom: 3px;
+}
+
+#container .emoji_list li .emoji {
+    width: 270px;
+    height: 110px;
+    margin: 20px auto 0;
+    position: relative;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#container .emoji_list li .emoji p {
+    text-align: center;
+    font-size: 50px;
+}
+
+
+#container .emoji_list li .tit strong {
+	color: #292929;
+	font-size: 22px;
+	font-weight: bold;
+	margin: 10px 0 2px;
+	display: block;
+	position: relative;
+	z-index: 5;
+	top: 0;
+}
+
+#container .emoji_list li .sub {
+    color: #666666;
+    font-size: 16px;
+    display: block;
+    margin: 0 0 13px;
+    position: relative;
+    z-index: 5;
+    top: 0;
+}
+
+#container .emoji_list li .price span {
+    color: #ffc300;
+    font-size: 18px;
+    font-weight: bold;
+    display: block;
+}
+ 
+#container .emoji_list li .buy_btn {
+    position: absolute;
+    left: 125px;
+    bottom: 40px;
+    background: var(--point-color1);
+    border: none;
+    border-radius: 40px;
+    width: 120px;
+    font-size: 18px;
+    text-align: center;
+    height: 50px;
+    z-index: 5;
+    color: #fff;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#container .emoji_list li .used_btn {
+    position: absolute;
+    left: 125px;
+    bottom: 40px;
+    background: #bbb;
+    border: none;
+    border-radius: 40px;
+    width: 120px;
+    font-size: 18px;
+    text-align: center;
+    height: 50px;
+    z-index: 5;
+    color: #fff;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

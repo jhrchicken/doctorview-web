@@ -1,0 +1,186 @@
+#container .content {
+  margin-top: 170px;
+  padding: 100px 0 170px;
+}
+#container .content_inner {
+  max-width: 1170px;
+  margin: 0 auto;
+}
+
+#container h2 {
+  text-align: center;
+  font-size: 40px;
+  color: var(--point-color2);
+  font-weight: 700;
+  padding-bottom: 50px;
+}
+
+
+/*********************************************************************/
+
+/*** 예약 폼 ***/
+#container .reservation {
+  display: flex;
+  gap: 0 30px;
+}
+
+/*** 진료과목 선택 ***/
+/* #container .list_search {
+  display: flex;
+  gap: 0 5px;
+  width: 100%;
+  margin: 50px 0 20px;
+}
+#container .search_depart .searchField {
+  border: 2px solid #ddd;
+  width: 250px;
+  height: 50px;
+  color: var(--gray-400);
+  padding: 0 10px;
+  position: relative;
+  background: url(/images/drop_down_arrow.svg) no-repeat right 5px top 50%;
+  cursor: pointer;
+}
+#container .search_depart .search_btn {
+  border: 2px solid #ddd;
+  background: url(/images/search.svg) no-repeat 50% 50% / 80%;
+  width: 50px;
+  height: 50px;
+  color: var(--gray-400);
+  cursor: pointer;
+} */
+
+/*** 달력 ***/
+#container .calendar {
+  width: 60%;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.3);
+  padding: 50px;
+}
+/*** 월 선택 ***/
+#container .calendar_top {
+  display: flex;
+  gap: 0 10px;
+  justify-content: center;
+  padding: 10px 0 20px;
+}
+#container .calendar_top>button {
+  border: none;
+  background: none;
+}
+#container .date {
+  display: flex;
+  gap: 0 5px;
+  font-size: 25px;
+  font-weight: 500;
+}
+/*** 달력 ***/
+#container .scriptCalendar {
+  text-align: center;
+  border: 1px solid #ddd;
+}
+#container .scriptCalendar td {
+  border-right: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+}
+#container .scriptCalendar thead>tr>td {
+  font-weight: 700;
+  font-size: 18px;
+  padding: 20px;
+  background: var(--point-color2);
+  color: #fff;
+}
+#container .scriptCalendar tbody>tr>td {
+  padding: 5px;
+  height: 100px;
+}
+
+
+#container td.past {
+  background: #eee;
+  color: var(--gray-500);
+}
+#container td.future {
+  cursor: pointer;
+}
+#container td.saturday {
+  color: blue;
+}
+#container td.sunday {
+  color: red;
+}
+#container td.prevnext {
+  color: #a9a9a9;
+}
+#container td.choiceDay {
+  background: var(--point-color1);
+  color: #fff;
+  cursor: pointer;
+}
+
+/*************************************************************************/
+
+#container .reserv_right {
+  width: 40%;
+}
+
+/*** 시간 ***/
+#container .time_select {
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  padding: 40px 30px;
+  font-size: 18px;
+}
+#container .time_select>p {
+  font-size: 22px;
+  font-weight: 500;
+  color: var(--gray-600);
+  margin-left: 3px;
+  margin-bottom: 35px;
+}
+
+#container .time_select .warning {
+	color: red;
+	font-size: 16px;
+	font-weight: 100;
+}
+
+#container .am {
+  margin-bottom: 30px;
+}
+#container .time_title {
+  margin-bottom: 10px;
+  color: var(--gray-500);
+  font-size: 20px;
+  font-weight: 500;
+  padding-left: 5px;
+}
+
+#container .time_list_am,
+#container .time_list_pm {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+#container .time_item {
+  width: calc(25% - 30px / 4);
+}
+#container .time_item.block label {
+  color: red;
+}
+
+
+
+/**************************************************************************/
+
+#container .btn_wrap button {
+  margin-top: 20px;
+  width: 50%;
+  background: var(--point-color2);
+  padding: 10px;
+  border: none;
+  border-radius: 10px;
+  color: #fff;
+  font-size: 22px;
+}

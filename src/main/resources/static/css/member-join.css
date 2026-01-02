@@ -1,0 +1,50 @@
+#container .content {
+  margin-top: 170px;
+  padding: 100px 0;
+  background: #f6f6f6;
+}
+#container .content_inner {
+  max-width: 1170px;
+  margin: 0 auto;
+}
+#container .login_wrap {
+  width: 100%;
+  background: #fff;
+  padding: 86px 100px 60px;
+  border-radius: 30px;
+}
+
+#container h2 {
+  font-size: 35px;
+  color: var(--point-color2);
+  font-weight: 700;
+  padding-bottom: 20px;
+  border-bottom: 4px solid #005ad5;
+}
+#container .login_wrap>p {
+  font-size: 20px;
+  text-align: center;
+  margin-top: 50px;
+  color: var(--gray-500);
+}
+#container .btn_wrap {
+  display: flex;
+  gap: 0 20px;
+  margin-top: 10px;
+}
+#container .btn_wrap a {
+  display: block;
+  width: calc(50% - 10px);
+  border-radius: 10px;
+  text-align: center;
+  background: #eee;
+  padding: 120px 10px;
+}
+#container .btn_wrap span {
+  font-size: 80px;
+}
+#container .btn_wrap p {
+  font-size: 35px;
+  font-weight: 500;
+  margin-top: 20px;
+}

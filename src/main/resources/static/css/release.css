@@ -1,0 +1,257 @@
+#container {
+	margin-top: 170px;
+    position: relative;
+    min-width: 1280px;
+    margin-bottom: 170px;
+}
+
+#container .content {
+	padding-top: 0;
+	position: relative;
+	z-index: 3;
+}
+
+#container .content .hd {
+	text-align: center;
+	padding: 73px 0 50px;
+}
+
+#container .content .hd h2 {
+	font-size: 40px;
+	color: #292929;
+	font-weight: 500;
+}
+
+#container .content .hd p {
+	text-align: center;
+	color: #292929;
+	font-size: 18px;
+	margin-top: 18px;
+}
+
+#container .release {
+	max-width: 1170px;
+	margin: 0 auto;
+	position: relative;
+}
+
+#container .release .version {
+	font-size: 24px;
+	margin: 48px 0 24px;
+}
+
+
+#container .release .date {
+	font-size: 17px;
+	font-weight: bold;
+}
+
+
+
+
+
+
+
+/*** NEW ***/
+#container .release .new {
+	margin-left: 110px;
+    position: relative;
+}
+
+#container .release .new p {
+	font-size: 16px;
+	margin: 16px 0;
+	line-height: 25px;
+	color: #666666;
+}
+
+#container .release .new strong {
+	font-weight: 500;
+	font-size: 18px;
+	color: #292929;
+}
+
+#container .release .new:before {
+	content: 'new';
+	background: #860acb;
+	color: #fff;
+	font-size: 11px;
+	border-radius: 14px;
+    display: inline-block;
+	font-weight: 700;
+    height: 28px;
+    left: -110px;
+    line-height: 28px;
+    margin-right: 10px;
+    position: absolute;
+    text-align: center;
+    text-transform: uppercase;
+    top: -3px;
+    width: 100px;
+}
+
+
+
+/*** FEATURE ***/
+#container .release .feature {
+	margin-left: 110px;
+    position: relative;
+}
+
+#container .release .feature p {
+	font-size: 16px;
+	margin: 16px 0;
+	line-height: 25px;
+	color: #666;
+}
+
+#container .release .feature strong {
+	font-weight: 500;
+	font-size: 18px;
+	color: #292929;
+}
+
+#container .release .feature:before {
+	content: 'feature';
+	background: #0f9d58;
+	color: #fff;
+	font-size: 11px;
+	border-radius: 14px;
+    display: inline-block;
+	font-weight: 700;
+    height: 28px;
+    left: -110px;
+    line-height: 28px;
+    margin-right: 10px;
+    position: absolute;
+    text-align: center;
+    text-transform: uppercase;
+    top: -3px;
+    width: 100px;
+}
+
+
+
+/*** CHANGED ***/
+#container .release .changed {
+	margin-left: 110px;
+    position: relative;
+}
+
+#container .release .changed p {
+	font-size: 16px;
+	margin: 16px 0;
+	line-height: 25px;
+	color: #666;
+}
+
+#container .release .changed strong {
+	font-weight: 500;
+	font-size: 18px;
+	color: #292929;
+}
+
+#container .release .changed:before {
+	content: 'changed';
+	background: #f4b400;
+	color: #fff;
+	font-size: 11px;
+	border-radius: 14px;
+    display: inline-block;
+	font-weight: 700;
+    height: 28px;
+    left: -110px;
+    line-height: 28px;
+    margin-right: 10px;
+    position: absolute;
+    text-align: center;
+    text-transform: uppercase;
+    top: -3px;
+    width: 100px;
+}
+
+
+
+/*** FIXED ***/
+#container .release .fixed {
+	margin-left: 110px;
+    position: relative;
+}
+
+#container .release .fixed p {
+	font-size: 16px;
+	margin: 16px 0;
+	line-height: 25px;
+	color: #666;
+}
+
+#container .release .fixed strong {
+	font-weight: 500;
+	font-size: 18px;
+	color: #292929;
+}
+
+#container .release .fixed:before {
+	content: 'fixed';
+	background: #4285f4;
+	color: #fff;
+	font-size: 11px;
+	border-radius: 14px;
+    display: inline-block;
+	font-weight: 700;
+    height: 28px;
+    left: -110px;
+    line-height: 28px;
+    margin-right: 10px;
+    position: absolute;
+    text-align: center;
+    text-transform: uppercase;
+    top: -3px;
+    width: 100px;
+}
+
+
+
+/*** DEPRECATED ***/
+#container .release .deprecated {
+	margin-left: 110px;
+    position: relative;
+}
+
+#container .release .deprecated p {
+	font-size: 16px;
+	margin: 16px 0;
+	line-height: 25px;
+	color: #666;
+	
+}
+
+#container .release .deprecated strong {
+	font-weight: 500;
+	font-size: 18px;
+	color: #292929;
+}
+
+#container .release .deprecated:before {
+	content: 'deprecated';
+	background: #db4437;
+	color: #fff;
+	font-size: 11px;
+	border-radius: 14px;
+    display: inline-block;
+	font-weight: 700;
+    height: 28px;
+    left: -110px;
+    line-height: 28px;
+    margin-right: 10px;
+    position: absolute;
+    text-align: center;
+    text-transform: uppercase;
+    top: -3px;
+    width: 100px;
+}
+
+#container .release a {
+	color: #1a73e8;
+}
+

@@ -1,0 +1,301 @@
+#container {
+	margin-top: 170px;
+    position: relative;
+    min-width: 1280px;
+}
+
+#container .content {
+	padding-top: 0;
+	position: relative;
+	z-index: 3;
+}
+
+#container .content h2 {
+	text-align: center;
+	font-size: 40px;
+	color: #292929;
+	font-weight: 500;
+	padding: 73px 0 50px;
+}
+
+#container .content .reserve_history {
+	background: #fff;
+	margin-top: 30px;
+	padding-bottom: 130px;
+	background: #f6f6f6;
+}
+
+#container .content .reserve_history p.none {
+	text-align: center;
+	color: #999;
+	font-weight: 500;
+	padding: 100px 0 50px 0;
+	line-height: 25px;
+}
+
+#container .content .reserve_history .tab {
+	text-align: center;
+	position: relative;
+	top: -29px;
+	width: 1194px;
+	margin: 0 auto;
+}
+
+#container .content .reserve_history .tab ul {
+	overflow: hidden;
+	display: inline-block;
+	height: 84px;
+}
+
+#container .content .reserve_history .tab ul li {
+	float: left;
+	width: 391px;
+	border: 1px solid #e5e5e5;
+	position: relative;
+}
+
+#container .content .reserve_history .tab ul li.active {
+	z-index: 3;
+}
+
+#container .content .reserve_history .tab ul li:first-child {
+	margin-left: 0;
+}
+
+#container .content .reserve_history .tab ul li a {
+	display: block;
+	text-align: center;
+	font-size: 16px;
+	height: 58px;
+	line-height: 58px;
+	background: #fff;
+	color: #666666;
+}
+
+#container .content .reserve_history .tab ul li.active a {
+	background: var(--point-color2);
+	color: #fff;
+}
+
+#container .content .reserve_history .reserve {
+	position: relative;
+    margin: 0 auto;
+    width: 1170px;
+    border: 1px solid #e5e5e5;
+    border-radius: 10px;
+    color: #666666;
+    margin-top: 30px;
+    background: #fff;
+}
+
+#container .content .reserve_history .reserve .info {
+	padding : 40px 60px 0 60px;
+	overflow: hidden;
+	color: #666666;
+}
+
+#container .content .reserve_history .reserve .info .top {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 0 10px 26px 10px;
+	border-bottom: 1px solid #e5e5e5;
+}
+
+#container .content .reserve_history .reserve .info .top h2 {
+	padding: 0;
+	text-align: left;
+	font-size: 26px;
+	font-weight: bold;
+	color: #666666;
+}
+
+#container .content .reserve_history .reserve .info .top .btn_wrap {
+	display: flex;
+	gap: 10px;
+}
+
+#container .content .reserve_history .reserve .info .top .cancel_btn {
+	width: 110px;
+	border-radius: 2px;
+	background: #FFCCCC;
+	text-align: center;
+	display: inline-block;
+}
+
+
+#container .content .reserve_history .reserve .info .top .cancel_btn span {
+	font-size: 16px;
+	font-weight: 500;
+	line-height: 33px;
+	height: 35px;
+	color: #666666;
+	display: inline-block;
+	vertical-align: middle;
+}
+
+#container .content .reserve_history .reserve .info .top .done_btn {
+	width: 110px;
+	border-radius: 2px;
+	background: #CCE0F5;
+	text-align: center;
+	display: inline-block;
+}
+
+
+#container .content .reserve_history .reserve .info .top .done_btn span {
+	font-size: 16px;
+	font-weight: 500;
+	line-height: 33px;
+	height: 35px;
+	color: #666666;
+	display: inline-block;
+	vertical-align: middle;
+}
+
+#container .content .reserve_history .reserve .info .top .hide_btn {
+	width: 110px;
+	border-radius: 2px;
+	background: #f2f2f2;
+	text-align: center;
+	display: inline-block;
+}
+
+
+#container .content .reserve_history .reserve .info .top .hide_btn span {
+	font-size: 16px;
+	font-weight: 500;
+	line-height: 33px;
+	height: 35px;
+	color: #666666;
+	display: inline-block;
+	vertical-align: middle;
+}
+
+#container .content .reserve_history .reserve .info .top .review_btn {
+	width: 110px;
+	border-radius: 2px;
+	background: #f2f2f2;
+	text-align: center;
+	display: inline-block;
+}
+
+#container .content .reserve_history .reserve .info .top .review_btn span {
+	font-size: 16px;
+	font-weight: 500;
+	line-height: 33px;
+	height: 35px;
+	color: #666666;
+	display: inline-block;
+	vertical-align: middle;
+}
+
+
+
+#container .content .reserve_history .reserve .info .bottom {
+	padding: 21px 10px 26px 10px;
+}
+
+#container .content .reserve_history .reserve .info .bottom dl {
+	position: relative;
+	border: 0;
+	overflow: hidden;
+	padding: 5px 0;
+}
+
+#container .content .reserve_history .reserve .info .bottom dl dt {
+	position: relative;
+	float: left;
+	width: 120px;
+	font-weight: 500;
+	line-height: 35px;
+	font-size: 16px;
+	color: #666666;
+}
+
+#container .content .reserve_history .reserve .info .bottom dl dd {
+	position: relative;
+	float: left;
+	width: calc(50% - 120px);
+	line-height: 35px;
+	color: #999;
+}
+
+#container .content .reserve_history .reserve .info .bottom .memo_dd {
+	width: calc(100% - 120px);
+}
+
+#container .content .reserve_history .reserve .info .bottom .memo {
+	display: inline-block;
+}
+
+#container .content .reserve_history .reserve .info .bottom .memo span {
+	background-color: #fff;
+	width: 100%;
+	height: 35px;
+	line-height: 35px;
+}
+
+#container .content .reserve_history .reserve .info .bottom .memo .memo_btn {
+	position: absolute;
+	bottom: 0;
+	right: -30px;
+	width: 127px;
+	text-align: center;
+}
+
+#container .content .reserve_history .reserve .info .bottom .memo .memo_btn:before {
+	background: #e8e8e8;
+	content: '';
+	position: absolute;
+	left: 0;
+	top: 50%;
+	margin-top: -16px;
+	height: 32px;
+	width: 2px;
+}
+
+#container .content .reserve_history .reserve .info .bottom .memo .memo_btn button {
+	background: none;
+	border: none;
+	display: inline-block;
+	cursor: pointer;
+	position: relative;
+	height: 35px;
+	outline: none;
+}
+
+#container .content .reserve_history .reserve .info .bottom .memo .memo_btn button span {
+	color: var(--point-color2);
+	font-size: 16px;
+	line-height: 35px;
+}
+
+
+
+/** 모달창 **/
+.modal-content {
+  color: var(--gray-500);
+}
+.modal-content button {
+  height: auto;
+  padding: 5px 10px;
+  border: 1px solid #bbb;
+}
+.modal-content button.btn-close {
+  border: none;
+}
+.modal-content #hashtag-list {
+  display: flex;
+  gap: 0 5px;
+  margin-top: 5px;
+}
+.modal-content .form-group {
+  margin-bottom: 10px;	
+}
+.modal-content .form-control {
+  margin-bottom: 10px;
+}
+.modal-content .form-control:last-child {
+  margin-bottom: 0;
+}

@@ -1,0 +1,422 @@
+#container {
+	margin-top: 170px;
+    position: relative;
+    min-width: 1280px;
+}
+
+/*** 서브 헤더 ***/
+#container .sub_header {
+	position: absolute;
+	left: 0;
+	width: 100%;
+	top: 0;
+	border-bottom: 1px solid #e5e5e5;
+	height: 59px;
+	z-index: 5;
+}
+
+#container .sub_header .sub_content {
+	max-width: 1170px;
+	margin: 0 auto;
+	position: relative;
+}
+
+#container .sub_header .sub_content .sub_loc {
+	text-align: center;
+}
+
+#container .sub_header .sub_content .sub_loc ul {
+	overflow: hidden;
+	display: inline-block;
+}
+
+#container .sub_header .sub_content .sub_loc ul li {
+	float: left;
+	position: relative;
+}
+
+#container .sub_header .sub_content .sub_loc ul li:first-child {
+	margin-left: 0;
+	padding-left: 0;
+}
+
+#container .sub_header .sub_content .sub_loc ul li a {
+	display: block;
+	line-height: 60px;
+	color: #999999;
+	font-size: 16px;
+	position: relative;
+	cursor: pointer;
+}
+
+#container .sub_header .sub_content .sub_loc ul li.active a {
+	color: var(--point-color2);
+	font-weight: 500;
+}
+
+#container .sub_header .sub_content .sub_loc ul li.active a:after {
+    content: '';
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    bottom: 0;
+    background-color: var(--point-color2);
+}
+
+#container .sub_header .sub_content .sub_loc ul li + li {
+	padding-left: 24px;
+	margin-left: 21px;
+}
+
+#container .sub_header .sub_content .sub_loc ul li + li:after {
+    content: '';
+    width: 4px;
+    height: 4px;
+    background-color: #dddddd;
+    border-radius: 30px;
+    position: absolute;
+    left: 0;
+    top: 28px;
+}
+
+
+
+/*** 게시글 ***/
+#container .content {
+	padding-top: 0;
+	position: relative;
+	z-index: 3;
+}
+
+#container .content .board_wrap {
+	padding-top: 130px;
+	position: relative;
+	padding-bottom: 130px;
+}
+
+#container .content .board_wrap .board {
+	max-width: 1170px;
+	margin: 0 auto;
+	position: relative;
+	border-top: 4px solid #dddddd;
+	border-bottom: 2px solid #dddddd;
+}
+
+#container .board_title .title {
+	border: 0;
+	line-height: 24px;
+	padding: 25px 35px 10px 35px;
+	background: #fffcf0;
+	font-weight: 600;
+	font-size: 22px;
+	color: #666666;
+	box-sizing: border-box;
+	display: block;
+	text-align: left;
+}
+
+#container .board_title .detail {
+	margin-top: -1px;
+	padding: 0 35px 25px 35px;
+	background: #fffcf0;
+	border: 0;
+	border-bottom: 1px solid #dddddd;
+}
+
+#container .board_title .detail li {
+	position: relative;
+	overflow: hidden;
+	line-height: 20px;
+	padding: 0;
+	border-bottom: 0;
+	font-size: 14px;
+}
+
+#container .board_title .detail li span {
+	position: relative;
+	color: #999999;
+	display: inline-block;
+	padding: 0px 0px 0px 19px;
+	background: url(/images/board_bar.png) no-repeat 8px center;
+}
+
+#container .board_title .detail li span:first-child {
+	padding-left: 0;
+	background: none;
+}
+
+#container .board_title .detail li span em {
+	color: #999999;
+}
+
+
+
+/*** 게시글 수정/삭제 버튼 ***/
+#container .board_title .btn_wrap {
+	position: absolute;
+	top: 30px;
+	right: 20px;
+	display: flex;
+	gap: 10px;
+}
+
+#container .btn_wrap .edit_btn {
+	width: 100px;
+	border-radius: 2px;
+	background: #dddddd;
+	text-align: center;
+	display: inline-block;
+}
+
+#container .btn_wrap .edit_btn span {
+	font-size: 16px;
+	font-weight: 500;
+	line-height: 33px;
+	height: 35px;
+	color: #666666;
+	display: inline-block;
+	vertical-align: middle;
+}
+
+#container .btn_wrap .delete_btn {
+	width: 100px;
+	border-radius: 2px;
+	background: #dddddd;
+	text-align: center;
+	display: inline-block;
+}
+
+#container .btn_wrap .delete_btn span {
+	font-size: 16px;
+	font-weight: 500;
+	line-height: 33px;
+	height: 35px;
+	color: #666666;
+	display: inline-block;
+	vertical-align: middle;
+}
+
+
+
+/*** 게시글 내용 ***/
+#container .board_content {
+	padding: 20px 35px;
+	font-size: 16px;
+	color: #666666;
+}
+
+
+
+/*** 게시글 좋아요/싫어요 버튼 ***/
+#container .reaction_btn {
+	padding: 80px 0 10px 0;
+	text-align: center;
+	display: flex;
+	justify-content: center;
+}
+
+#container .reaction_btn button {
+	position: relative;
+	display: inline-block;
+    width: 57px;
+    height: 57px;
+    margin: 0 9px;
+    border: 5px solid #ddd;
+    border-radius: 50%;
+    cursor: pointer;
+    background: url(/images/board/like_grey.png) no-repeat center center / 70%;
+}
+
+#container .reaction_btn button:nth-child(n+2) {
+	background: url(/images/board/dislike_grey.png) no-repeat center center / 70%;
+}
+
+#container .reaction_btn span {
+	display: block;
+	font-size: 16px;
+	color: #666;
+	font-weight: bold;
+}
+
+#container .reaction_btn .like_count {
+	position: absolute;
+	right: 46px;
+	top: 50%;
+	transform: translateY(-50%);
+	width: 50px;
+	height: 35px;
+    border: 5px solid #ddd;
+    border-right: none;
+    border-radius: 20px 0 0 20px;
+    padding: 0 20px 0 15px;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 30px;
+    text-align: center;
+    color: #999;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#container .reaction_btn .report_count {
+	position: absolute;
+	left: 46px;
+	top: 50%;
+	transform: translateY(-50%);
+	width: 50px;
+	height: 35px;
+    border: 5px solid #ddd;
+    border-left: none;
+    border-radius: 0 20px 20px 0;
+    padding: 0 15px 0 15px;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 30px;
+    text-align: center;
+    color: #999;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#container .reaction_btn button.push {
+	background: url(/images/board/like_blue.png) no-repeat center center / 70%;
+}
+
+#container .reaction_btn button.push:nth-child(n+2) {
+	background: url(/images/board/dislike_red.png) no-repeat center center / 70%;
+}
+
+
+
+/*** 목록 바로가기 ***/
+#container .list_btn {
+	width: 170px;
+	position: relative;
+	margin: 0 auto;
+	margin-top: 25px;
+	margin-bottom: 100px;
+}
+
+#container .list_btn a {
+	display: block;
+	color: #ffffff;
+	font-size: 18px;
+	font-weight: 300;
+	background: var(--point-color2);
+	height: 50px;
+	line-height: 50px;
+	text-align: left;
+	border-radius: 50px;
+	text-indent: 70px;
+}
+
+#container .list_btn:before, .list_btn:after, .list_btn a:after {
+	content: '';
+	top: 16px;
+    position: absolute;
+    left: 36px;
+    width: 20px;
+    height: 4px;
+    background-color: #ffce32;
+}
+
+#container .list_btn:after {
+	top: 23px;
+}
+
+#container .list_btn a:after {
+	top: 30px;
+}
+
+
+
+/*** 댓글 작성하기 ***/
+#container .comment {
+	max-width: 1170px;
+	margin: 0 auto;
+	position: relative;
+}
+
+#container .comment_form {
+	display: flex;
+	gap: 10px;
+	padding: 20px;
+}
+
+#container .comment_form .write_comment {
+	padding: 20px;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	height: 65px;
+}
+
+#container .comment_form .write_comment:focus {
+	border-color: #999;
+    outline: none;
+}
+
+#container .comment_form button {
+	background: var(--point-color1);
+	color: #666;
+	font-size:16px;
+	font-weight: bold;
+	border: none;
+	border-radius: 5px;
+	width: 100px;
+	height: 65px;
+	cursor: pointer;
+}
+
+#container .comment_form .write_comment::placeholder {
+    color: #999;
+}
+
+
+
+/*** 댓글 목록 ***/
+#container .comment tr:first-child {
+	border-top: 1px solid #ddd;
+}
+
+#container .comment tr {
+	height: 70px;
+	border-bottom: 1px solid #ddd;
+	color: #666;
+	font-size: 16px;
+}
+
+#container .comment td {
+	padding: 0 20px;
+}
+
+#container .comment .writer {
+	font-weight: 700;
+}
+
+#container .comment .comm_btn {
+  display: flex;
+  gap: 0 10px;
+  justify-content: center;
+  padding: 15px 0;
+}
+
+#container .comment .comm_btn button {
+  background: #bbb;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  width: 50px;
+  height: 41px;
+}
+
+#container .comment .comm_btn button:hover {
+	background: var(--point-color1);
+}
+
+#container .comment .comm_btn button:nth-child(n+2):hover {
+	background: #D50032;
+}
+

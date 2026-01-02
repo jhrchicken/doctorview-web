@@ -1,0 +1,318 @@
+#container {
+	margin-top: 170px;
+    position: relative;
+    min-width: 1280px;
+}
+
+#container .content {
+	padding-top: 0;
+	position: relative;
+	z-index: 3;
+}
+
+#container .content h2 {
+	text-align: center;
+	font-size: 40px;
+	color: #292929;
+	font-weight: 500;
+	padding: 134px 0 84px;
+}
+
+
+
+/*** 서브 헤더 ***/
+#container .sub_header {
+	position: absolute;
+	left: 0;
+	width: 100%;
+	top: 0;
+	border-bottom: 1px solid #e5e5e5;
+	height: 59px;
+	z-index: 5;
+}
+
+#container .sub_header .sub_content {
+	max-width: 1170px;
+	margin: 0 auto;
+	position: relative;
+}
+
+
+#container .sub_header .sub_content .sub_loc {
+	text-align: center;
+}
+
+#container .sub_header .sub_content .sub_loc ul {
+	overflow: hidden;
+	display: inline-block;
+}
+
+#container .sub_header .sub_content .sub_loc ul li {
+	float: left;
+	position: relative;
+}
+
+#container .sub_header .sub_content .sub_loc ul li:first-child {
+	margin-left: 0;
+	padding-left: 0;
+}
+
+#container .sub_header .sub_content .sub_loc ul li a {
+	display: block;
+	line-height: 60px;
+	color: #999999;
+	font-size: 16px;
+	position: relative;
+	cursor: pointer;
+}
+
+#container .sub_header .sub_content .sub_loc ul li.active a {
+	color: var(--point-color2);
+	font-weight: 500;
+}
+
+#container .sub_header .sub_content .sub_loc ul li.active a:after {
+    content: '';
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    bottom: 0;
+    background-color: var(--point-color2);
+}
+
+#container .sub_header .sub_content .sub_loc ul li + li {
+	padding-left: 24px;
+	margin-left: 21px;
+}
+
+#container .sub_header .sub_content .sub_loc ul li + li:after {
+    content: '';
+    width: 4px;
+    height: 4px;
+    background-color: #dddddd;
+    border-radius: 30px;
+    position: absolute;
+    left: 0;
+    top: 28px;
+}
+
+
+
+/** 병원 목록 **/
+#container .hosp_wrap {
+	padding-bottom: 127px;
+}
+
+#container .hosp_wrap .hosp_list {
+	max-width: 1170px;
+	margin: 0 auto;
+	position: relative;
+}
+
+#container .hosp_wrap .hosp_list p.none {
+	text-align: center;
+	color: #999;
+	font-weight: 500;
+	padding: 50px 0 50px 0;
+	line-height: 25px;
+}
+
+#container .hosp_wrap .hosp_list .hosp>li {
+	width: 100%;
+	height: 230px;
+	padding: 40px;
+	border-radius: 10px;
+	border: 1px solid #fff;
+	box-shadow: 0 0 15px 3px rgba(0, 0, 0, 0.05);
+	position: relative;
+	display: flex;
+	align-items: center;
+	background: #fff;
+	margin-bottom: 30px;
+}
+
+/* 병원 목록 (병원 사진) */
+#container .hosp_wrap .hosp_list .hosp .hosp_photo {
+	width: 150px;
+	height: 150px;
+	border: 2px solid #ddd;
+	border-radius: 20px;
+}
+
+#container .hosp_wrap .hosp_list .hosp .hosp_photo img {
+	width: 100%;
+	height: 100%;
+}
+
+/* 병원 목록 (병원 정보) */
+#container .hosp_wrap .hosp_list .hosp .hosp_info {
+	padding: 0 24px;
+}
+
+/* 병원 목록 (병원 정보 - 제목과 인증마크) */
+#container .hosp_wrap .hosp_list .hosp .hosp_info .hosp_name {
+	display: flex;
+	gap: 0 5px;
+}
+
+#container .hosp_wrap .hosp_list .hosp .hosp_info .hosp_name p {
+	font-size: 24px;
+	font-weight: 500;
+	color: #666;
+}
+
+#container .hosp_wrap .hosp_list .hosp .hosp_info .hosp_name .hosp_mark {
+	display: block;
+	width: 30px;
+	height: 30px;
+	background: url(/images/approve.svg) no-repeat center center / 80%;
+}
+
+/* 병원 목록 (병원 정보 - 진료과목) */
+#container .hosp_wrap .hosp_list .hosp .hosp_info .hosp_dept {
+	margin-top: 4px;
+	display: flex;
+	gap: 0 10px;
+} 
+
+#container .hosp_wrap .hosp_list .hosp .hosp_info .hosp_dept p {
+	display: block;
+	font-size: 16px;
+	font-weight: 500;
+	color: #bbb;
+}
+
+/* 병원 목록 (병원 정보 - 전화번호와 주소) */
+#container .hosp_wrap .hosp_list .hosp .hosp_info .hosp_tel {
+	display: flex;
+	align-items: center;
+	margin-top: 20px;
+}
+
+#container .hosp_wrap .hosp_list .hosp .hosp_info .hosp_addr {
+	display: flex;
+	align-items: center;
+	margin-top: 4px;
+}
+
+#container .hosp_wrap .hosp_list .hosp .hosp_info p {
+	color: #999;
+}
+
+#container .hosp_wrap .hosp_list .hosp .hosp_info .sub_tit {
+	font-weight: 500;
+}
+
+
+#container .hosp_wrap .hosp_list .hosp .hosp_info .divider {
+	width: 1px;
+	height: 13px;
+	background: #ddd;
+	margin-left: 8px;
+	margin-right: 8px;
+}
+
+/* 병원 목록 (병원 정보 - 찜과 리뷰) */
+#container .hosp_wrap .hosp_list .hosp .hosp_info .info_right {
+	position: absolute;
+	right: 30px;
+	top: 40px;
+	display: flex;
+	gap: 0 20px;
+	justify-content: right;
+}
+
+#container .hosp_wrap .hosp_list .hosp .hosp_info .info_right .like {
+	display: flex;
+	gap: 0 2px;
+	align-items: center;
+}
+
+#container .hosp_wrap .hosp_list .hosp .hosp_info .info_right .review {
+	display: flex;
+	gap: 0 2px;
+	align-items: center;
+}
+
+#container .hosp_wrap .hosp_list .hosp .hosp_info .info_right .like img {
+	width: 20px;
+	height: 20px;
+}
+
+#container .hosp_wrap .hosp_list .hosp .hosp_info .info_right .review img {
+	width: 25px;
+	height: 25px;
+}
+
+
+#container .hosp_wrap .hosp_list .hosp .hosp_info .info_right p {
+	font-size: 18px;
+	position: relative;
+	color: #666;
+}
+
+#container .hosp_wrap .hosp_list .hosp .hosp_info .info_right .count {
+	color: #bbb;
+}
+
+/* 병원 목록 (병원 정보 - 해시태그) */
+#container .hosp_wrap .hosp_list .hosp .hosp_info .hosp_hashtag>ul {
+	display: flex;
+	gap: 0 10px;
+	margin-top: 20px;
+}
+
+#container .hosp_wrap .hosp_list .hosp .hosp_info .hosp_hashtag .tag {
+	padding: 0 5px;
+	border-radius: 2px;
+	background: #f2f2f2;
+	text-align: center;
+	display: flex;
+	justify-content: center;
+}
+#container .hosp_wrap .hosp_list .hosp .hosp_info .hosp_hashtag .tag p {
+	font-size: 16px;
+	font-weight: 500;
+	line-height: 25px;
+	height: 25px;
+	color: #999; 
+}
+
+
+
+/*** 페이지네이션 ***/
+#container .pagination {
+	margin-top: 50px;  
+	width: 100%;
+}
+
+#container .pagination_inner {
+	display: flex;
+	justify-content: center;
+	vertical-align: center;
+	text-align: center;
+	gap: 0 20px;
+}
+
+#container .pagination a {
+	font-weight: 700;
+	font-size: 18px;
+	color: #bbb;
+	display: block;
+	width: 24px;
+	height: 24px;
+}
+
+#container .pagination a:hover {
+	color: var(--point-color2);
+}
+
+#container .pagination p {
+	font-weight: 700;
+	font-size: 18px;
+	color: var(--point-color2);
+	display: block;
+	width: 24px;
+	height: 24px;
+}

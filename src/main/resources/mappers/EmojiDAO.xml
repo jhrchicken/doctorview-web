@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	
+<mapper namespace="com.edu.springboot.emoji.IEmojiService">
+
+	<!-- 이모지 목록 -->
+	<select id="listStore"
+		resultType="com.edu.springboot.emoji.StoreDTO">
+		SELECT * FROM store
+	</select>
+
+	<!-- 보유 이모지 목록 -->
+	<select id="listMyEmoji"
+	        resultType="com.edu.springboot.emoji.EmojiDTO">
+	    SELECT * FROM store
+	    WHERE store_idx IN (SELECT store_ref FROM emoji WHERE user_ref=#{param1})
+	</select>
+
+	
+	<!-- 유저 활성화 이모지 정보 업데이트 -->
+	<update id="updateEmoji">
+		UPDATE member SET emoji=#{param2} WHERE id=#{param1}
+	</update>
+	
+	<!-- 유저 이모지 구매 -->
+	<insert id="buyEmoji"
+		parameterType="com.edu.springboot.emoji.EmojiDTO">
+		INSERT INTO emoji (emoji_idx, user_ref, store_ref)
+		VALUES (seq_emoji_idx.nextval, #{user_ref}, #{store_ref})
+	</insert>
+
+</mapper>

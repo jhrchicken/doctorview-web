@@ -1,0 +1,707 @@
+#container {
+	min-width: 1280px;
+	padding-top: 170px;
+}
+
+#container .content {
+	background: url(../images/bg_content.gif) 0 0 repeat;
+}
+
+#container .content_inner {
+	min-width: 1170px;
+	margin: 0 auto;
+}
+
+/*** 병원/의사 찾기 ***/
+#container .search {
+    position: relative;
+    height: 490px;
+    background-color: #fff;
+}
+
+#container .search_wrap {
+	height: 440px;
+	background: #07a5e6;
+	padding: 30px;
+	display: flex;
+	gap: 0 35px;
+}
+
+#container .search_form_wrap {
+	width: 100%;
+	text-align: center;
+}
+
+#container .search_form_wrap .title {
+    font-size: 16px;
+	color: #fff;
+    line-height: 26px;
+    letter-spacing: -0.04em;
+    position: relative;
+    z-index: 9;
+}
+
+#container .search_form_wrap .title .tip {
+	margin-bottom: 10px;
+    font-size: 50px;
+    font-weight: 700;
+    color: #fff;
+    padding: 104px 0 21px 0;
+    position: relative;
+    z-index: 9;
+}
+
+#container .search_form_wrap .search_form {
+	margin-top: 30px;
+}
+
+#container .search_form_wrap .search_field {
+  border: 3px solid #fff;
+  height: 45px;
+  width: 100px;
+  color: #fff;
+  padding: 0 10px;
+  position: relative;
+  background: url(/images/drop_down_arrow.svg) no-repeat right 5px top 50%;
+  cursor: pointer;
+}
+
+#container .search_form_wrap .search_word {
+  border: 3px solid #fff;
+  background: none;
+  color: #fff;
+  height: 45px;
+  width: 300px;
+}
+
+#container .search_form_wrap .search_word::placeholder {
+	color: #fff;
+	opacity: 0.7;
+}
+
+#container .search_form_wrap .search_btn {
+  border: 3px solid #fff;
+  background: url(/images/home/search.svg) no-repeat 50%;
+  height: 45px;
+  width: 45px;
+}
+
+#container .search_wrap .img1 {
+    position: absolute;
+    left: 50%;
+    margin-left: 362px;
+    background: url(/images/home/img_visual_1.jpg) 0 0 no-repeat;
+    top: 0;
+    width: 341px;
+    height: 313px;
+}
+
+#container .search_wrap .img2 {
+    position: absolute;
+    left: 50%;
+    margin-left: -640px;
+    top: 74px;
+    background: url(/images/home/img_visual_2.jpg) 0 0 no-repeat;
+    width: 162px;
+    height: 214px;
+}
+
+#container .search_wrap .img3 {
+    position: absolute;
+    left: 50%;
+    margin-left: -480px;
+    top: 168px;
+    background: url(/images/home/img_visual_3.jpg) 0 0 no-repeat;
+    width: 176px;
+    height: 222px;
+}
+
+
+#container .search .quick_link {
+    overflow: hidden;
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    width: 1170px;
+    margin-left: -585px;
+    text-align: right;
+    z-index: 5;
+}
+
+#container .search .quick_link .quick_link_content {
+    overflow: hidden;
+    float: right;
+    display: table;
+}
+
+#container .search .quick_link .quick_link_content >div {
+    display: table-cell;
+    vertical-align: bottom;
+    height: 80px;
+}
+
+#container .search .quick_link .quick_link_content >div a {
+    display: block;
+    width: 300px;
+    height: 80px;
+    position: relative;
+    text-align: center;
+    overflow: hidden;
+}
+
+#container .search .quick_link .quick_link_content .hospital a {
+    background-color: var(--point-color1);
+    border-radius: 30px 0 0 0;
+    float: right;
+    transition-duration: 0.2s;
+    letter-spacing: -0.02em;
+}
+
+#container .search .quick_link .quick_link_content .doctor a {
+    background-color: var(--point-color2);
+    border-radius: 0 0 30px 0;
+    float: left;
+    letter-spacing: -0.05em;
+}
+
+#container .search .quick_link .quick_link_content >div a >strong {
+    font-size: 22px;
+    font-weight: bold;
+    display: inline-block;
+    padding: 27px 0 0 0;
+}
+
+#container .search .quick_link .quick_link_content .hospital a >strong {
+    color: #292929;
+    display: block;
+}
+
+#container .search .quick_link .quick_link_content .hospital a >strong:before {
+    content: '';
+    display: inline-block;
+    vertical-align: middle;
+    padding-right: 13px;
+    margin-right: 15px;
+    position: relative;
+    top: -2px;
+    background: url(/images/home/icon_hospital.png) 0 0 no-repeat;
+    width: 24px;
+    height: 30px;
+}
+
+#container .search .quick_link .quick_link_content .doctor a >strong {
+    color: #FFF;
+    display: block;
+}
+
+#container .search .quick_link .quick_link_content .doctor a >strong:before {
+    content: '';
+    display: inline-block;
+    vertical-align: middle;
+    padding-right: 13px;
+    margin-right: 15px;
+    top: -2px;
+    position: relative;
+    background: url(/images/home/icon_doctor.png) 0 0 no-repeat;
+    width: 34px;
+    height: 30px;
+}
+
+
+
+
+
+
+
+/*** 빠른 검색 ***/
+#container .tag {
+  padding-bottom: 30px; 
+}
+#container .tag .swiper-slide {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80px;
+  background: var(--point-color1);
+  border: none;
+  border-radius: 10px;
+}
+#container .tag .swiper-slide:hover {
+  background: #fff;
+  border: 2px solid var(--point-color1);
+}
+#container .tag .swiper-slide a {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 25px;  
+  color: #fff;
+}
+#container .tag .swiper-slide:hover a {
+  color: var(--point-color1);
+}
+
+
+
+
+
+
+
+/*** 베스트 메뉴 ***/
+#container .best_menu {
+	background-color: #fff;
+	padding: 60px 0 0;
+	height: 500px;
+}
+
+/*** 베스트 메뉴 - 제목 ***/
+#container .best_menu .hd {
+	width: 1170px;
+	margin: 0 auto;
+	position: relative;
+}
+
+#container .best_menu .hd h2 {
+	color: #292929;
+    font-size: 40px;
+    font-weight: bold;
+    background: url(/images/home/bul_tit.png) 0 12px no-repeat;
+    min-height: 60px;
+    padding: 17px 0 30px 25px;
+    margin-bottom: 1px;
+}
+
+#container .best_menu .hd .tab {
+    position: absolute;
+    right: 0;
+    top: 44px;
+}
+
+#container .best_menu .hd .tab ul {
+    overflow: hidden;
+}
+
+#container .best_menu .hd .tab ul li {
+    float: left;
+    position: relative;
+    margin-left: 23px;
+    padding: 0 0 0 25px;
+}
+
+#container .best_menu .hd .tab ul li:first-child {
+    padding: 0;
+    margin: 0;
+}
+
+#container .best_menu .hd .tab ul li a {
+    display: block;
+    font-size: 16px;
+    color: #666666;
+    font-weight: 300;
+    letter-spacing: -0.03em;
+}
+
+#container .best_menu .hd .tab ul li.active a {
+    color: var(--point-color2);
+    font-weight: bold;
+}
+
+#container .best_menu .hd .tab ul li:nth-child(n+2):after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 3px;
+    width: 1px;
+    height: 15px;
+    background-color: #dddddd;
+}
+
+/*** 베스트 메뉴 - 스와이퍼 ***/
+#container .best_menu .best_menu_wrap {
+	position: relative;
+	height: 320px;
+	width: 1200px;
+	margin: 0 auto;
+	overflow: hidden;
+}
+
+#container .best_menu .best_menu_wrap ul li {
+	width: 260px;
+    height: 320px;
+    padding: 0 5px;
+    margin-left: 30px;
+    float: left;
+}
+
+#container .best_menu .best_menu_wrap .wrap {
+	position: relative;
+	text-align: center;
+}
+
+#container .best_menu .best_menu_wrap ul li .img {
+	height: 182px;
+	display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+}
+
+#container .best_menu .best_menu_wrap ul li .img img {
+    height: 80%;
+}
+
+#container .best_menu .best_menu_wrap ul li:hover .img:after {
+    content: '';
+    background: url(/images/home/btn_more.png) 0 0 no-repeat;
+    width: 98px;
+    height: 98px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin: 0 0 0 -35px;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+#container .best_menu .best_menu_wrap ul li:hover .img:after {
+    opacity: 1;
+}
+
+#container .best_menu .best_menu_wrap ul li strong {
+	font-size: 18px;
+	font-weight: bold;
+	color: #292929;
+	margin: 3px 0 10px;
+	display: block;
+}
+
+#container .best_menu .best_menu_wrap ul li p {
+    font-size: 13px;
+    color: #999999;
+    line-height: 21px;
+    opacity: 1;
+    width: 200px;
+    margin: 0 auto;
+    letter-spacing: -0.04em;
+    word-wrap: break-word;
+    word-break: keep-all;
+}
+
+
+
+
+
+/*** 접근 메뉴 ***/
+#container .contact_menu {
+	width: 1280px;
+	margin: 0 auto;
+	padding: 80px 0;
+}
+
+#container .contact_menu .content_top {
+	overflow: hidden;
+}
+
+#container .contact_menu .content_top .cm1 {
+ 	background: var(--point-color2);
+ 	border-radius: 30px 0 30px 30px;
+	width: 370px;
+	height: 300px;
+	position: relative;
+	margin-left: 55px;
+	float: left;
+}
+
+#container .contact_menu .content_top .cm1 p {
+	color: #fff;
+	font-size: 28px;
+	font-weight: bold;
+	line-height: 40px;
+	letter-spacing: -0.03em;
+	position: absolute;
+	left: 39px;
+	top: 38px;
+}
+
+#container .contact_menu .content_top .cm1 .btn {
+    position: absolute;
+    left: 41px;
+    bottom: 42px;
+    border: 2px solid #fff;
+    border-radius: 20px;
+    width: 180px;
+    font-size: 18px;
+    text-align: center;
+    height: 40px;
+}
+
+#container .contact_menu .content_top .cm1 .btn:hover {
+    background: #fff;
+}
+
+#container .contact_menu .content_top .cm1 .btn span {
+	display: block;
+	height: 36px;
+	line-height: 36px;
+	color: #fff;
+	font-size: 16px;
+}
+
+#container .contact_menu .content_top .cm1 .btn:hover span {
+	color: var(--point-color2);
+	font-weight: bold;
+}
+
+#container .contact_menu .content_top .cm2 {
+	background: var(--point-color1);
+ 	border-radius: 30px 0 30px 30px;
+	width: 370px;
+	height: 300px;
+	position: relative;
+	margin-left: 30px;
+	float: left;
+}
+
+#container .contact_menu .content_top .cm2 p {
+	color: #fff;
+	font-size: 28px;
+	font-weight: bold;
+	line-height: 40px;
+	letter-spacing: -0.03em;
+	position: absolute;
+	left: 39px;
+	top: 38px;
+}
+
+#container .contact_menu .content_top .cm2 .btn {
+    position: absolute;
+    left: 41px;
+    bottom: 42px;
+    border: 2px solid #fff;
+    border-radius: 20px;
+    width: 200px;
+    font-size: 18px;
+    text-align: center;
+    height: 40px;
+}
+
+#container .contact_menu .content_top .cm2 .btn:hover {
+    background: #fff;
+}
+
+#container .contact_menu .content_top .cm2 .btn span {
+	display: block;
+	height: 36px;
+	line-height: 36px;
+	color: #fff;
+	font-size: 16px;
+}
+
+#container .contact_menu .content_top .cm2 .btn:hover span {
+	color: var(--point-color1);
+	font-weight: bold;
+}
+
+#container .contact_menu .content_top .cm3 {
+ 	background: #009223;
+ 	border-radius: 30px 0 30px 30px;
+	width: 370px;
+	height: 300px;
+	position: relative;
+	margin-left: 30px;
+	float: left;
+}
+
+#container .contact_menu .content_top .cm3 p {
+	color: #fff;
+	font-size: 28px;
+	font-weight: bold;
+	line-height: 40px;
+	letter-spacing: -0.03em;
+	position: absolute;
+	left: 39px;
+	top: 38px;
+}
+
+#container .contact_menu .content_top .cm3 .btn {
+    position: absolute;
+    left: 41px;
+    bottom: 42px;
+    border: 2px solid #fff;
+    border-radius: 20px;
+    width: 200px;
+    font-size: 18px;
+    text-align: center;
+    height: 40px;
+}
+
+#container .contact_menu .content_top .cm3 .btn:hover {
+	background: #fff;
+}
+
+#container .contact_menu .content_top .cm3 .btn span {
+	display: block;
+	height: 36px;
+	line-height: 36px;
+	color: #fff;
+	font-size: 16px;
+}
+
+#container .contact_menu .content_top .cm3 .btn:hover span {
+	color: #009223;
+	font-weight: bold;
+}
+
+#container .contact_menu .content_bottom {
+	margin: 30px 0 0 55px;
+	overflow: hidden;
+}
+
+#container .contact_menu .content_bottom .news {
+	background-color: #fff;
+	width: 1170px;
+	height: 300px;
+	border-radius: 30px 0 30px 0;
+	position: relative;
+	float: left;
+}
+
+#container .contact_menu .content_bottom .news .hd {
+	position: absolute;
+	top: 75px;
+	left: 60px;
+}
+
+#container .contact_menu .content_bottom .news .hd h2 {
+	color: #292929;
+	font-size: 30px;
+	font-weight: bold;
+	font-family: font_sw;
+	background: url(/images/home/bul_tit.png) 0 0 no-repeat;
+	min-height: 60px;
+	padding: 17px 0 0 25px;
+	margin-bottom: 20px;
+}
+
+#container .contact_menu .content_bottom .news .hd p {
+	font-size: 16px;
+	color: #666666;
+	text-align: center;
+	line-height: 26px;
+	letter-spacing: -0.04em;
+}
+
+#container .contact_menu .content_bottom .news_wrap {
+	position: absolute;
+	left: 389px;
+	top: 40px;
+}
+
+#container .contact_menu .content_bottom .news_wrap p {
+    font-size: 16px;
+    color: #292929;
+    position: relative;
+    line-height: 24px;
+    letter-spacing: -0.04em;
+}
+
+#container .contact_menu .content_bottom .news_wrap strong {
+	font-weight: bold;
+	color: #666666;
+	color: var(--point-color2);
+}
+
+
+
+
+
+/*** 퀵 메뉴 ***/
+#container .quick_menu {
+	text-align: center;
+    background-color: #fff;
+    padding: 40px 0 37px;
+}
+
+#container .quick_menu ul {
+	overflow: hidden;
+	display: inline-block;
+}
+
+#container .quick_menu ul li {
+	float: left;
+	margin-left: 80px;
+}
+
+#container .quick_menu ul li:first-child {
+	margin-left: 0;
+}
+
+#container .quick_menu ul li a {
+	display: block;
+    overflow: hidden;
+    position: relative;
+    height: 70px;
+    padding-left: 90px;
+}
+
+#container .quick_menu .icon {
+	background: url(/images/home/icon_quickmenu.png) no-repeat;
+    width: 70px;
+    height: 70px;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+#container .quick_menu ul li.qm1 .icon {
+    background-position: 0px 0px;
+}
+
+#container .quick_menu ul li.qm2 .icon {
+    background-position: -70px 0px;
+}
+
+#container .quick_menu ul li.qm3 .icon {
+    background-position: -140px 0px;
+}
+
+#container .quick_menu ul li.qm4 .icon {
+    background-position: -210px 0px;
+}
+
+
+
+#container .quick_menu ul li strong {
+	color: #292929;
+    font-size: 18px;
+    font-weight: 700;
+    display: block;
+    margin-top: 12px;
+    letter-spacing: -0.04em;
+    text-align: left;
+}
+
+#container .quick_menu ul li span {
+	color: #999999;
+	font-size: 13px;
+	display: block;
+	margin-top: 6px;
+	letter-spacing: -0.02em;
+	text-align: left;
+}
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,130 @@
+#container .content {
+  margin-top: 170px;
+  padding: 100px 0;
+  background: #f6f6f6;
+}
+#container .content_inner {
+  max-width: 1170px;
+  margin: 0 auto;
+}
+#container .login_wrap {
+  width: 100%;
+  background: #fff;
+  padding: 86px 100px 60px;
+  border-radius: 30px;
+}
+
+#container h2 {
+  font-size: 35px;
+  color: var(--point-color2);
+  font-weight: 700;
+  padding-bottom: 20px;
+  border-bottom: 4px solid #005ad5;
+}
+
+/*** 회원가입 - 입력폼 ***/
+#container form>p {
+  color: #bbb;
+  margin-top: 10px;
+}
+#container .regist {
+  border: 2px solid #ddd;
+  margin: 10px 0;
+}
+#container .regist tr {
+  border-bottom: 1px solid #ddd;
+}
+#container .regist td {
+  padding: 5px 10px;
+}
+#container .regist .left {
+  width: 150px;
+  text-align: center;
+  border-right: 1px solid #ddd;
+}
+#container .regist td>input {
+  border: 1px solid #ddd;
+  width: 90%;
+  height: 40px;
+  padding: 0 10px;
+}
+#container .regist .id>input {
+  border: none;
+  font-size: 18px;
+}
+#container .regist .mobile>input,
+#container .regist .regi>input {
+  width: 28.7%;
+}
+/*** 영업시간 - 시간 선택 ***/
+#container .searchField {
+  border: 2px solid #ddd;
+  width: 150px;
+  height: 41px;
+  color: var(--gray-400);
+  padding: 0 10px;
+  position: relative;
+  background: url(/images/drop_down_arrow.svg) no-repeat right 5px top 50%;
+  cursor: pointer;
+  margin-left: 10px;
+}
+#container .deadline {
+  display: flex;
+  gap: 0 10px;
+  vertical-align: center;
+  align-items: center;
+}
+#container .caution {
+  font-size: 10px;
+  color: red;
+}
+/*** 의료진 입력폼 ***/
+#container .regist .doc .doctor-info {
+  border: 1px solid #ddd;
+  margin-bottom: 5px;
+}
+/*** 사진 ***/
+#container .regist .image {
+  display: flex;
+  gap: 0 10px;
+  align-items: flex-end;
+}
+#container .regist .image>img {
+  width: 200px;
+  height: 200px;
+  padding: 10px;
+  border: 1px solid #ddd;
+}
+#container .regist .image>input {
+  border: none;
+}
+/*** 추가 정보 ***/
+#container .regist .extra {
+  margin-left: 100px;
+}
+/*** 의사 추가 ***/
+#container .regist .doctors a {
+  background: var(--point-color2);
+  border-radius: 5px;
+  color: #fff;
+  padding: 10px;
+  display: block;
+  width: 200px;
+  text-align: center;
+}
+/*** 완료 버튼 ***/
+#container .btn_wrap {
+  display: flex;
+  gap: 0 20px;
+  justify-content: center;
+  margin-top: 20px;
+}
+#container .btn_wrap input {
+  width: 80px;
+  height: 41px;
+  border: none;
+  border-radius: 5px;
+  background: var(--point-color2);
+  color: #fff;
+  padding: 0 10px;
+}
