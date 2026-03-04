@@ -304,9 +304,7 @@
 
 ## <span id="5-1">아키텍쳐</span>
 
-Spring MVC 패턴 with Mybatis
-
-<img src="src/main/resources/static/images/springmvc.png">
+<img width="740" height="600" alt="architecture-gray" src="https://github.com/user-attachments/assets/5432c383-764e-47a8-875d-a596f93423c4" />
 
 <div align="right">
   
